@@ -1,0 +1,64 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export CLOUDSDK_PYTHON:/home/julio/\x2epyenv/shims/python
+SETUVAR --path CPLUS_INCLUDE_PATH:/usr/include/gdal
+SETUVAR --path C_INCLUDE_PATH:/usr/include/gdal
+SETUVAR --export --path DAMSAT_SHARE_PATH:/home/julio/Documents/vandersat/data/damsat_share
+SETUVAR --export EDITOR:nvim
+SETUVAR --export MAPBOX_ACCESS_TOKEN:sk\x2eeyJ1Ijoiamp2aXpjYWlubyIsImEiOiJja21jNjEyb2sxd2tyMnptem13dGpsbHh6In0\x2eitg3qsyUXoQitc2DkKlWRw
+SETUVAR --export ONESAT_TILES_DIR:/home/julio/Documents/vandersat/data/onesat_tiles
+SETUVAR --export PYENV_ROOT:/home/julio/\x2epyenv
+SETUVAR --export VISUAL:nvim
+SETUVAR --export XDG_CONFIG_HOME:/home/julio/\x2econfig
+SETUVAR --export ZELLIJ_AUTO_ATTACH:true
+SETUVAR --export ZELLIJ_AUTO_EXIT:true
+SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_za:zoxide\x20add
+SETUVAR _fish_abbr_zq:zoxide\x20query
+SETUVAR _fish_abbr_zqi:zoxide\x20query\x20\x2di
+SETUVAR _fish_abbr_zr:zoxide\x20remove
+SETUVAR _fisher_evanlucas_2F_fish_2D_kubectl_2D_completions_files:\x7e/\x2econfig/fish/completions/kubectl\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:evanlucas/fish\x2dkubectl\x2dcompletions\x1ejorgebucaran/fisher
+SETUVAR _fisher_upgraded_to_4_4:\x1d
+SETUVAR fish_color_autosuggestion:BD93F9
+SETUVAR fish_color_cancel:\x2d\x2dreverse
+SETUVAR fish_color_command:F8F8F2
+SETUVAR fish_color_comment:6272A4
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:50FA7B
+SETUVAR fish_color_error:FFB86C
+SETUVAR fish_color_escape:00a6b2
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:\x1d
+SETUVAR fish_color_keyword:\x1d
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:00a6b2
+SETUVAR fish_color_option:\x1d
+SETUVAR fish_color_param:FF79C6
+SETUVAR fish_color_quote:F1FA8C
+SETUVAR fish_color_redirection:8BE9FD
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell\x0aType\x20\x60help\x60\x20for\x20instructions\x20on\x20how\x20to\x20use\x20fish
+SETUVAR fish_key_bindings:fish_vi_key_bindings
+SETUVAR fish_pager_color_background:\x1d
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_secondary_background:\x1d
+SETUVAR fish_pager_color_secondary_completion:\x1d
+SETUVAR fish_pager_color_secondary_description:\x1d
+SETUVAR fish_pager_color_secondary_prefix:\x1d
+SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
+SETUVAR fish_pager_color_selected_completion:\x1d
+SETUVAR fish_pager_color_selected_description:\x1d
+SETUVAR fish_pager_color_selected_prefix:\x1d
+SETUVAR --export fish_user_paths:/home/julio/\x2ecargo/bin\x1e/home/julio/\x2epoetry/bin\x1e/home/julio/\x2edoom\x2eemacs/bin/\x1e/home/julio/\x2epyenv/bin\x1e/home/julio/\x2eemacs\x2ed/bin/\x1e/home/julio/\x2efzf/bin

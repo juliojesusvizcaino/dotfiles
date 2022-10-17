@@ -1,0 +1,8 @@
+regolith.wallpaper.file: /home/julio/.wallpapers/hollow-knight-art-4k-wallpaper-264a.jpg
+regolith.wallpaper.options: wallpaper
+
+regolith.lockscreen.wallpaper.file: /home/julio/.wallpapers/hollow-knight-art-4k-wallpaper-264a.jpg
+regolith.lockscreen.wallpaper.options: wallpaper
+
+!regolith.look.path: /usr/share/regolith-look/gruvbox
+regolith.look.path: /usr/share/regolith-look/lascaille
