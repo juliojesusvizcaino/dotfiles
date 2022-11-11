@@ -48,3 +48,8 @@ nnoremap("<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", { silent =
 nnoremap("<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true })
 nnoremap("<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true })
 nnoremap("gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true })
+
+-- tests
+nnoremap("<leader>mt", "<cmd>TestNearest<CR>")
+nnoremap("<leader>me", "<cmd>TestEdit<CR>")
+nnoremap("<leader>mf", "<cmd>TestFile<CR>")

@@ -127,4 +127,17 @@ return require("packer").startup(function(use)
 			-- })
 		end,
 	})
+	use({
+		"nvim-neorg/neorg",
+		run = ":Neorg sync-parsers", -- This is the important bit!
+		config = function()
+			require("neorg").setup({
+				load = {
+					["core.defaults"] = {},
+					-- ["core.gtd.base"] = {},  -- requires a workspace https://github.com/nvim-neorg/neorg/wiki/Getting-Things-Done
+				},
+			})
+		end,
+		requires = "nvim-lua/plenary.nvim",
+	})
 end)
