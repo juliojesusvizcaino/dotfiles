@@ -55,14 +55,7 @@ return require("packer").startup(function(use)
 		requires = "nvim-lua/plenary.nvim",
 		commit = "691cf89f59ed887809db7854b670cdb944dc9559", -- remove once https://github.com/TimUntersberger/neogit/issues/379 is fixed
 	})
-	use({
-		"lewis6991/gitsigns.nvim",
-		-- config = function()
-		-- 	print("start setup gitsigns")
-		-- 	require("gitsigns").setup()
-		-- 	print("end setup gitsigns")
-		-- end,
-	})
+	use("lewis6991/gitsigns.nvim")
 	-- comments
 	use({
 		"numToStr/Comment.nvim",
