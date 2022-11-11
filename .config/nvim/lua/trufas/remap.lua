@@ -26,9 +26,14 @@ nnoremap("<leader>*", function()
 end)
 nnoremap("<leader>.", "<cmd>Telescope file_browser path=%:p:h<CR>")
 nnoremap("<leader>,", "<cmd>Telescope buffers<CR>")
-nnoremap("<leader>fs", "<cmd>w<CR>")
 
 nnoremap("<leader>`", "<C-^>")
+
+-- buffer
+nnoremap("<leader>br", "<cmd>e<CR>")
+
+-- file
+nnoremap("<leader>fs", "<cmd>w<CR>")
 
 -- git
 nnoremap("<leader>gg", "<cmd>Neogit<CR>")
