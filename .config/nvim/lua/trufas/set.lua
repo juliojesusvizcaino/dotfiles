@@ -14,7 +14,6 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = true
 
-
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.scrolloff = 8
