@@ -147,7 +147,6 @@ _G.packer_plugins = {
     url = "https://github.com/TimUntersberger/neogit"
   },
   ["null-ls.nvim"] = {
-    config = { "\27LJ\2\n©\2\0\0\6\0\15\0)6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\r\0004\4\t\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\5>\5\2\0049\5\3\0009\5\a\0059\5\b\5>\5\3\0049\5\3\0009\5\a\0059\5\t\5>\5\4\0049\5\3\0009\5\a\0059\5\n\5>\5\5\0049\5\3\0009\5\v\0059\5\f\5>\5\6\0049\5\3\0009\5\v\0059\5\5\5>\5\a\0049\5\3\0009\5\v\0059\5\6\5>\5\b\4=\4\14\3B\1\2\1K\0\1\0\fsources\1\0\0\rgitsigns\17code_actions\nisort\nblack\vstylua\15formatting\15shellcheck\reslint_d\16diagnostics\rbuiltins\nsetup\fnull-ls\frequire\0" },
     loaded = true,
     path = "/home/julio/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
@@ -222,26 +221,22 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-web-devicons
-time([[Config for nvim-web-devicons]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
-time([[Config for nvim-web-devicons]], false)
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-try_loadstring("\27LJ\2\n©\2\0\0\6\0\15\0)6\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\r\0004\4\t\0009\5\3\0009\5\4\0059\5\5\5>\5\1\0049\5\3\0009\5\4\0059\5\6\5>\5\2\0049\5\3\0009\5\a\0059\5\b\5>\5\3\0049\5\3\0009\5\a\0059\5\t\5>\5\4\0049\5\3\0009\5\a\0059\5\n\5>\5\5\0049\5\3\0009\5\v\0059\5\f\5>\5\6\0049\5\3\0009\5\v\0059\5\5\5>\5\a\0049\5\3\0009\5\v\0059\5\6\5>\5\b\4=\4\14\3B\1\2\1K\0\1\0\fsources\1\0\0\rgitsigns\17code_actions\nisort\nblack\vstylua\15formatting\15shellcheck\reslint_d\16diagnostics\rbuiltins\nsetup\fnull-ls\frequire\0", "config", "null-ls.nvim")
-time([[Config for null-ls.nvim]], false)
 -- Config for: nvim-surround
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
 time([[Config for nvim-surround]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: nvim-web-devicons
+time([[Config for nvim-web-devicons]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
+time([[Config for nvim-web-devicons]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

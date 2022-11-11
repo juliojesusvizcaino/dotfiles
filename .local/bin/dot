@@ -23,9 +23,9 @@ if ! [ -x "$(command -v alacritty)" ]; then
     # first rust
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     # clone alacritty
-    cd /tmp
+    cd /tmp || exit
     git clone https://github.com/alacritty/alacritty.git
-    cd alacritty
+    cd alacritty || exit
     # install dependencies
     apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
     # compile alacritty
@@ -36,7 +36,7 @@ if ! [ -x "$(command -v alacritty)" ]; then
     sudo desktop-file-install extra/linux/Alacritty.desktop
     sudo update-desktop-database
     # set as default terminal
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $(which alacritty) 50
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
     sudo update-alternatives --config x-terminal-emulator
 fi
 ####################
@@ -44,7 +44,7 @@ fi
 
 # ripgrep
 if ! [ -x "$(command -v rg)" ]; then
-    cd /tmp
+    cd /tmp || exit
     curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
     sudo dpkg -i ripgrep_13.0.0_amd64.deb
 fi
@@ -73,15 +73,15 @@ fi
 # - python
 if ! [ -x "$(command -v pyenv)" ]; then
     curl https://pyenv.run | bash
-    set -Ux PYENV_ROOT $HOME/.pyenv
-    set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+    set -Ux PYENV_ROOT "$HOME"/.pyenv
+    set -U fish_user_paths "$PYENV_ROOT"/bin "$fish_user_paths"
 fi
 
 # dotfiles
 if ! [ -x "$(command -v stow)" ]; then
     sudo apt install stow
 fi
-cd $HOME/.dotfiles
+cd "$HOME"/.dotfiles || exit
 stow .
 
 ####################
