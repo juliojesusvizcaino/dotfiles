@@ -1,8 +1,14 @@
 regolith.wallpaper.file: /home/julio/.wallpapers/hollow-knight-art-4k-wallpaper-264a.jpg
-regolith.wallpaper.options: wallpaper
+regolith.wallpaper.options: zoom
 
 regolith.lockscreen.wallpaper.file: /home/julio/.wallpapers/hollow-knight-art-4k-wallpaper-264a.jpg
-regolith.lockscreen.wallpaper.options: wallpaper
+regolith.lockscreen.wallpaper.options: zoom
 
 !regolith.look.path: /usr/share/regolith-look/gruvbox
 regolith.look.path: /usr/share/regolith-look/lascaille
+
+i3-wm.workspace.01.name: 1: Web
+i3-wm.workspace.02.name: 2: Code
+i3-wm.workspace.08.name: 8: Email
+i3-wm.workspace.09.name: 9: Chat
+i3-wm.workspace.10.name: 10: Music

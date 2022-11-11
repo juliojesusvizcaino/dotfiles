@@ -84,6 +84,15 @@ for _, server in ipairs(mason_lspconfig.get_installed_servers()) do
     -- tsserver is already configured by the typescript plugin
     if server ~= "tsserver" then
         lspconfig[server].setup({})
+    elseif server == "jsonls" then
+        lspconfig.jsonls.setup({
+            settings = {
+                json = {
+                    schemas = require("schemastore").json.schemas(),
+                    validate = { enable = true },
+                },
+            },
+        })
     end
 end
 -- lspconfig.pyright.setup({

@@ -8,6 +8,7 @@ return require("packer").startup(function(use)
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
     use("jose-elias-alvarez/typescript.nvim")
+    use("b0o/schemastore.nvim")
 
     -- completion
     use("hrsh7th/nvim-cmp") -- Autocompletion plugin
@@ -76,15 +77,18 @@ return require("packer").startup(function(use)
     use({
         "jose-elias-alvarez/null-ls.nvim",
         config = function()
-            local null = require("null-ls")
-            null.setup({
+            local null_ls = require("null-ls")
+            null_ls.setup({
                 sources = {
-                    null.builtins.formatting.stylua,
-                    null.builtins.diagnostics.eslint,
-                    null.builtins.completion.spell,
-                    null.builtins.formatting.black,
-                    null.builtins.formatting.isort,
-                    null.builtins.code_actions.gitsigns,
+                    null_ls.builtins.diagnostics.eslint_d,
+                    null_ls.builtins.diagnostics.shellcheck,
+                    -- null.builtins.completion.spell, -- too many text results
+                    null_ls.builtins.formatting.stylua,
+                    null_ls.builtins.formatting.black,
+                    null_ls.builtins.formatting.isort,
+                    null_ls.builtins.code_actions.gitsigns,
+                    null_ls.builtins.code_actions.eslint_d,
+                    null_ls.builtins.code_actions.shellcheck,
                 },
             })
         end,

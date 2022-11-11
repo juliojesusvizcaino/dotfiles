@@ -36,12 +36,12 @@ cmp.setup({
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
+        { name = "luasnip" },
         { name = "typescript" },
         { name = "nvim_lsp" },
-        { name = "luasnip" },
         { name = "path" },
     }, {
-        { name = "buffer" },
+        { name = "buffer", keyword_length = 3 },
     }),
     formatting = {
         format = function(entry, vim_item)

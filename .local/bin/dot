@@ -5,6 +5,8 @@ if ! [ -x "$(command -v ansible)" ]; then
     sudo apt install ansible -y
 fi
 
+sudo apt install regolith-look-* -y
+
 ####################
 # TERMINAL THINGS
 # - tmux
