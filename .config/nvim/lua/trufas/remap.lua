@@ -1,6 +1,7 @@
 local nnoremap = require("trufas.keymap").nnoremap
 
 local telescope = require("telescope.builtin")
+local agitator = require("agitator")
 
 nnoremap("<leader> ", function()
 	return telescope.find_files({ hidden = true })
@@ -15,6 +16,14 @@ nnoremap("<leader>`", "<C-^>")
 
 -- git
 nnoremap("<leader>gg", "<cmd>Neogit<CR>")
+nnoremap("<leader>gf", "<cmd>G<CR>")
+nnoremap("<leader>tB", agitator.git_blame_toggle)
+nnoremap("<leader>g ", agitator.open_file_git_branch)
+nnoremap("<leader>g/", agitator.search_git_branch)
+nnoremap("<leader>gt", function()
+    -- vim.api.nvim_command('tabnew')
+	return agitator.git_time_machine({ use_current_win = false })
+end)
 
 -- trouble
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true })

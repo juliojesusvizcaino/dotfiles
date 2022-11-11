@@ -24,3 +24,5 @@ vim.opt.scrolloff = 8
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank { on_visual = false, timeout=50 }]])

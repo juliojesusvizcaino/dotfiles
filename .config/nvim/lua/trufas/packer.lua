@@ -53,9 +53,11 @@ return require("packer").startup(function(use)
 	use({
 		"TimUntersberger/neogit",
 		requires = "nvim-lua/plenary.nvim",
-		commit = "691cf89f59ed887809db7854b670cdb944dc9559", -- remove once https://github.com/TimUntersberger/neogit/issues/379 is fixed
 	})
 	use("lewis6991/gitsigns.nvim")
+	use("tpope/vim-fugitive")
+	use("emmanueltouzery/agitator.nvim")
+
 	-- comments
 	use({
 		"numToStr/Comment.nvim",
