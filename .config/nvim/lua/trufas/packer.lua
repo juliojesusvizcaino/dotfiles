@@ -1,6 +1,11 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
 
+-- local filenamee = ".config/nvim/lua/trufas/packer.lua"
+-- local path = require('plenary.path'):new(filenamee)
+-- print("the filename is", filenamee, "and the path", path)
+-- print("some path: ", path:make_relative())
+
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("folke/tokyonight.nvim")
@@ -100,6 +105,26 @@ return require("packer").startup(function(use)
 		"folke/which-key.nvim",
 		config = function()
 			require("which-key").setup({})
+		end,
+	})
+
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	})
+	use({ "knubie/vim-kitty-navigator", run = "cp ./*.py ~/.config/kitty/" })
+	use({
+		"klen/nvim-test",
+		config = function()
+			require("nvim-test").setup({})
+			-- require("nvim-test.runners.pytest"):setup({
+			-- 	find_files = function(filename)
+			-- 		local path = require("plenary.path"):new(filename)
+			-- 		print("the filename is...", filename, "and the path", path)
+			-- 	end, -- find testfile for a file
+			-- })
 		end,
 	})
 end)
