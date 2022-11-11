@@ -1,14 +1,30 @@
 local nnoremap = require("trufas.keymap").nnoremap
 
-local telescope = require("telescope.builtin")
+local telescope_builtin = require("telescope.builtin")
 local agitator = require("agitator")
 
-nnoremap("<leader> ", function()
-	return telescope.find_files({ hidden = true })
+nnoremap("<leader><leader>", function()
+	-- return require("telescope").extensions.frecency.frecency({
+	-- 	-- workspace = "CWD",
+	-- 	sorter = require("telescope.config").values.file_sorter(),
+	-- })
+	return telescope_builtin.find_files({ hidden = true })
 end)
-nnoremap("<leader>/", telescope.live_grep)
-nnoremap("<leader>*", telescope.grep_string)
-nnoremap("<leader>.", "<cmd>Ex<CR>")
+nnoremap("<leader>/", function()
+	return telescope_builtin.live_grep({
+		additional_args = function(opts)
+			return { "--hidden" }
+		end,
+	})
+end)
+nnoremap("<leader>*", function()
+	return telescope_builtin.grep_string({
+		additional_args = function(opts)
+			return { "--hidden" }
+		end,
+	})
+end)
+nnoremap("<leader>.", "<cmd>Telescope file_browser path=%:p:h<CR>")
 nnoremap("<leader>,", "<cmd>Telescope buffers<CR>")
 nnoremap("<leader>fs", "<cmd>w<CR>")
 
@@ -21,7 +37,7 @@ nnoremap("<leader>tB", agitator.git_blame_toggle)
 nnoremap("<leader>g ", agitator.open_file_git_branch)
 nnoremap("<leader>g/", agitator.search_git_branch)
 nnoremap("<leader>gt", function()
-    -- vim.api.nvim_command('tabnew')
+	-- vim.api.nvim_command('tabnew')
 	return agitator.git_time_machine({ use_current_win = false })
 end)
 
