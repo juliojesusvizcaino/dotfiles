@@ -29,12 +29,12 @@ end
 
 direnv hook fish | source
 
-# if command -v conda 1>/dev/null 2>&1
+if test -e /home/julio/mambaforge/bin/conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 eval /home/julio/mambaforge/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
-# end
+end
 
 if command -v starship 1>/dev/null 2>&1
     starship init fish | source

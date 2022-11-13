@@ -1,46 +1,88 @@
 #!/usr/bin/bash
 
+set -euxo pipefail
 
 if ! [ -x "$(command -v ansible)" ]; then
     sudo apt install ansible -y
+fi
+
+if ! [ -x "$(command -v tree)" ]; then
+    sudo apt install tree
+fi
+
+if ! [ -x "$(command -v direnv)" ]; then
+    curl -sfL https://direnv.net/install.sh | bash
+fi
+
+if ! [ -x "$(command -v fzf)" ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all
+fi
+
+
+if ! [ -x "$(command -v lazygit)" ]; then
+    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep '"tag_name":' |  sed -E 's/.*"v*([^"]+)".*/\1/')
+    curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
+    rm lazygit.tar.gz
 fi
 
 sudo apt install regolith-look-* -y
 
 ####################
 # TERMINAL THINGS
+
 # - tmux
-if ! [ -x "$(command -v tmux)" ]; then
-    sudo apt install tmux -y
-fi
+# if ! [ -x "$(command -v tmux)" ]; then
+#     sudo apt install tmux -y
+#     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# fi
+
 # - starship
 if ! [ -x "$(command -v starship)" ]; then
     curl -sS https://starship.rs/install.sh | sh
 fi
 
 # - alacritty
-if ! [ -x "$(command -v alacritty)" ]; then
-    # first rust
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    # clone alacritty
-    cd /tmp || exit
-    git clone https://github.com/alacritty/alacritty.git
-    cd alacritty || exit
-    # install dependencies
-    apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-    # compile alacritty
-    cargo build --release
-    # desktop entry
-    sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
-    sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-    sudo desktop-file-install extra/linux/Alacritty.desktop
-    sudo update-desktop-database
-    # set as default terminal
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
+# if ! [ -x "$(command -v alacritty)" ]; then
+#     # first rust
+#     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#     # clone alacritty
+#     cd /tmp || exit
+#     git clone https://github.com/alacritty/alacritty.git
+#     cd alacritty || exit
+#     # install dependencies
+#     apt-get install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+#     # compile alacritty
+#     cargo build --release
+#     # desktop entry
+#     sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH
+#     sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+#     sudo desktop-file-install extra/linux/Alacritty.desktop
+#     sudo update-desktop-database
+#     # set as default terminal
+#     sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which alacritty)" 50
+#     sudo update-alternatives --config x-terminal-emulator
+# fi
+
+# - kitty
+
+if ! [ -x "$(command -v kitty)" ]; then
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+    # Create a symbolic link to add kitty to PATH (assuming ~/.local/bin is in
+    # your system-wide PATH)
+    ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
+    # Place the kitty.desktop file somewhere it can be found by the OS
+    cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
+    # If you want to open text files and images in kitty via your file manager also add the kitty-open.desktop file
+    cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/applications/
+    # Update the paths to the kitty and its icon in the kitty.desktop file(s)
+    sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
+    sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
+
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator "$(which kitty)" 50
     sudo update-alternatives --config x-terminal-emulator
 fi
-####################
-
 
 # ripgrep
 if ! [ -x "$(command -v rg)" ]; then
@@ -75,6 +117,8 @@ if ! [ -x "$(command -v pyenv)" ]; then
     curl https://pyenv.run | bash
     set -Ux PYENV_ROOT "$HOME"/.pyenv
     set -U fish_user_paths "$PYENV_ROOT"/bin "$fish_user_paths"
+    pyenv install 3.10.8
+    pyenv global 3.10.8
 fi
 
 # dotfiles
@@ -90,8 +134,5 @@ npm install -g neovim @johnnymorganz/stylua-bin
 pip install --user --upgrade pynvim black isort ipython
 cargo install tree-sitter-cli
 ####################
-
-# tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Complete!"
