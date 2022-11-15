@@ -112,6 +112,10 @@ if ! [ -x "$(command -v volta)" ]; then
     volta install node
 fi
 
+if ! [ -x "$(command -v pnpm)" ]; then
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
+fi
+
 # - python
 if ! [ -x "$(command -v pyenv)" ]; then
     curl https://pyenv.run | bash
