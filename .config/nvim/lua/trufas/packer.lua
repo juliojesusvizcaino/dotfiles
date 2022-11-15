@@ -140,4 +140,24 @@ return require("packer").startup(function(use)
 		end,
 		requires = "nvim-lua/plenary.nvim",
 	})
+	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			require("notify").setup({
+				background_colour = "#000000",
+			})
+		end,
+	})
+	use("rafcamlet/nvim-luapad")
+
+	use({ "ThePrimeagen/harpoon", requires = "nvim-lua/plenary.nvim" })
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("toggleterm").setup({
+				open_mapping = "<c-space>",
+			})
+		end,
+	})
 end)

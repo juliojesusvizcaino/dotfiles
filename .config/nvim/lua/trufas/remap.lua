@@ -35,17 +35,6 @@ nnoremap("<leader>br", "<cmd>e<CR>")
 -- file
 nnoremap("<leader>fs", "<cmd>w<CR>")
 
--- git
-nnoremap("<leader>gg", "<cmd>Neogit<CR>")
-nnoremap("<leader>gf", "<cmd>G<CR>")
-nnoremap("<leader>tB", agitator.git_blame_toggle)
-nnoremap("<leader>g ", agitator.open_file_git_branch)
-nnoremap("<leader>g/", agitator.search_git_branch)
-nnoremap("<leader>gt", function()
-	-- vim.api.nvim_command('tabnew')
-	return agitator.git_time_machine({ use_current_win = false })
-end)
-
 -- trouble
 nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>", { silent = true })
 nnoremap("<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", { silent = true })
@@ -54,7 +43,72 @@ nnoremap("<leader>xl", "<cmd>TroubleToggle loclist<cr>", { silent = true })
 nnoremap("<leader>xq", "<cmd>TroubleToggle quickfix<cr>", { silent = true })
 nnoremap("gR", "<cmd>TroubleToggle lsp_references<cr>", { silent = true })
 
--- tests
-nnoremap("<leader>mt", "<cmd>TestNearest<CR>")
-nnoremap("<leader>me", "<cmd>TestEdit<CR>")
-nnoremap("<leader>mf", "<cmd>TestFile<CR>")
+local wk = require("which-key")
+
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+
+wk.register({
+	-- ["1"] = require("harpoon.ui").nav_file(1),
+	-- ["2"] = require("harpoon.ui").nav_file(2),
+	["<Tab>"] = { "<cmd>Telescope harpoon marks<CR>", "harpoon" },
+	c = {
+		name = "+code", -- optional group name
+		t = {
+			name = "+tests",
+			t = { "<cmd>TestNearest<CR>", "dwim" },
+			e = { "<cmd>TestEdit<CR>", "edit" },
+			f = { "<cmd>TestFile<CR>", "file" },
+		},
+	},
+	f = {
+		name = "+file",
+		m = {
+			name = "+marks",
+			a = { require("harpoon.mark").add_file, "add file" },
+		},
+	},
+	g = {
+		name = "+git",
+		g = {
+			function()
+				lazygit:toggle()
+			end,
+			"lazygit",
+		},
+		G = { "<cmd>Neogit<CR>", "git" },
+		f = { "<cmd>G<CR>", "fugitive" },
+		[" "] = { agitator.open_file_git_branch, "open file in branch" },
+		["/"] = { agitator.search_git_branch, "search branch" },
+		t = {
+			function()
+				-- vim.api.nvim_command('tabnew')
+				return agitator.git_time_machine({ use_current_win = false })
+			end,
+			"time machine",
+		},
+	},
+    h =  {
+        name = "+help",
+        r = { "<cmd>:w<cr><cmd>:so<cr><cmd>PackerSync<cr>", "reload config" },
+    },
+	t = {
+		name = "+toggle",
+		b = { agitator.git_blame_toggle, "blame" },
+	},
+}, { prefix = "<leader>" })
+
+wk.register({
+	["1"] = {
+		function()
+			return require("harpoon.ui").nav_file(1)
+		end,
+		"harpoon 1",
+	},
+	["2"] = {
+		function()
+			return require("harpoon.ui").nav_file(2)
+		end,
+		"harpoon 1",
+	},
+}, { prefix = "<Alt>" })
