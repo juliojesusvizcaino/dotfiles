@@ -84,3 +84,8 @@ set -g fish_pager_color_selected_background --background=$selection
 fish_vi_key_bindings
 
 zoxide init fish | source
+
+# pnpm
+set -gx PNPM_HOME "/home/julio/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
+# pnpm end

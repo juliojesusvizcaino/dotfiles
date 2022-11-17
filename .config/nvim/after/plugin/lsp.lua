@@ -116,7 +116,18 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.eslint_d,
 		null_ls.builtins.diagnostics.shellcheck,
 		null_ls.builtins.diagnostics.mypy.with({
+			prefer_local = "venv/bin",
 			timeout = 30000,
+		}),
+		null_ls.builtins.diagnostics.flake8.with({
+			-- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
+
+			diagnostics_postprocess = function(diagnostic)
+				diagnostic.severity = nil
+			end,
+			-- severities = {
+			-- 	[vim.diagnostic.severity.INFO] = vim.diagnostic.severity.INFO,
+			-- },
 		}),
 		-- null.builtins.completion.spell, -- too many text results
 		null_ls.builtins.formatting.stylua,

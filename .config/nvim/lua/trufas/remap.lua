@@ -56,7 +56,7 @@ wk.register({
 		name = "+code", -- optional group name
 		t = {
 			name = "+tests",
-			t = { "<cmd>TestNearest<CR>", "dwim" },
+			t = { "<cmd>w<cr><cmd>TestNearest<CR>", "dwim" },
 			e = { "<cmd>TestEdit<CR>", "edit" },
 			f = { "<cmd>TestFile<CR>", "file" },
 		},
@@ -88,27 +88,24 @@ wk.register({
 			"time machine",
 		},
 	},
-    h =  {
-        name = "+help",
-        r = { "<cmd>:w<cr><cmd>:so<cr><cmd>PackerSync<cr>", "reload config" },
-    },
+	h = {
+		name = "+help",
+		r = { "<cmd>:w<cr><cmd>:so<cr><cmd>PackerSync<cr>", "reload config" },
+	},
 	t = {
 		name = "+toggle",
 		b = { agitator.git_blame_toggle, "blame" },
 	},
 }, { prefix = "<leader>" })
 
-wk.register({
-	["1"] = {
+local harpoon_mappings = {}
+for i, key in ipairs({ "n", "e", "i", "o" }) do
+	harpoon_mappings["<A-" .. key .. ">"] = {
 		function()
-			return require("harpoon.ui").nav_file(1)
+			return require("harpoon.ui").nav_file(i)
 		end,
-		"harpoon 1",
-	},
-	["2"] = {
-		function()
-			return require("harpoon.ui").nav_file(2)
-		end,
-		"harpoon 1",
-	},
-}, { prefix = "<Alt>" })
+		"harpoon " .. i,
+	}
+end
+
+wk.register(harpoon_mappings)

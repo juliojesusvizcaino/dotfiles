@@ -118,7 +118,9 @@ return require("packer").startup(function(use)
 	use({
 		"klen/nvim-test",
 		config = function()
-			require("nvim-test").setup({})
+			require("nvim-test").setup({
+                term = "toggleterm",
+            })
 			-- require("nvim-test.runners.pytest"):setup({
 			-- 	find_files = function(filename)
 			-- 		local path = require("plenary.path"):new(filename)
