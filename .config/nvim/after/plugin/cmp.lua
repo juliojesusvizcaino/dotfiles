@@ -14,7 +14,7 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
-			-- select = true,
+			select = true,
 		}),
 		["<C-j>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
