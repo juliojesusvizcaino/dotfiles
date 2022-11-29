@@ -49,11 +49,19 @@ local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
 
 wk.register({
+	g = {
+		name = "+go to",
+		p = { require('pytrize.api').jump_fixture, "pytest fixture" },
+	},
+})
+
+wk.register({
 	-- ["1"] = require("harpoon.ui").nav_file(1),
 	-- ["2"] = require("harpoon.ui").nav_file(2),
 	["<Tab>"] = { "<cmd>Telescope harpoon marks<CR>", "harpoon" },
 	c = {
 		name = "+code", -- optional group name
+        ["<leader>"] = { telescope_builtin.lsp_dynamic_workspace_symbols, "search symbols in project" },
 		t = {
 			name = "+tests",
 			t = { "<cmd>w<cr><cmd>TestNearest<CR>", "dwim" },
@@ -92,6 +100,9 @@ wk.register({
 		name = "+help",
 		r = { "<cmd>:w<cr><cmd>:so<cr><cmd>PackerSync<cr>", "reload config" },
 	},
+    p = {
+        name = "+project",
+    },
 	t = {
 		name = "+toggle",
 		b = { agitator.git_blame_toggle, "blame" },

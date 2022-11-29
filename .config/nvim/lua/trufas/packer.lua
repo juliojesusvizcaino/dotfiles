@@ -42,6 +42,7 @@ return require("packer").startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
+	use("nvim-treesitter/playground")
 	use("nvim-treesitter/nvim-treesitter-context")
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
@@ -119,8 +120,8 @@ return require("packer").startup(function(use)
 		"klen/nvim-test",
 		config = function()
 			require("nvim-test").setup({
-                term = "toggleterm",
-            })
+				term = "toggleterm",
+			})
 			-- require("nvim-test.runners.pytest"):setup({
 			-- 	find_files = function(filename)
 			-- 		local path = require("plenary.path"):new(filename)
@@ -160,6 +161,12 @@ return require("packer").startup(function(use)
 			require("toggleterm").setup({
 				open_mapping = "<c-space>",
 			})
+		end,
+	})
+	use({
+		"AckslD/nvim-pytrize.lua",
+		config = function()
+			require("pytrize").setup()
 		end,
 	})
 end)
