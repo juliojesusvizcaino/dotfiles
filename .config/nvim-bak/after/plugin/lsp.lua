@@ -131,7 +131,11 @@ null_ls.setup({
 		}),
 		-- null.builtins.completion.spell, -- too many text results
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.black.with({
+			extra_args = function(params)
+				return { "--config", "black.toml" }
+			end,
+		}),
 		null_ls.builtins.formatting.isort,
 		null_ls.builtins.formatting.shellharden,
 		null_ls.builtins.code_actions.eslint_d,

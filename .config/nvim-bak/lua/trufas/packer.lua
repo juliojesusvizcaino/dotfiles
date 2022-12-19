@@ -169,4 +169,6 @@ return require("packer").startup(function(use)
 			require("pytrize").setup()
 		end,
 	})
+
+    use("ThePrimeagen/vim-be-good")
 end)

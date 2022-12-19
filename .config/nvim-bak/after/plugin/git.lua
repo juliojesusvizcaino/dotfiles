@@ -1,3 +1,4 @@
+local something = require('trufas.keymap')
 local neogit = require("neogit")
 
 neogit.setup({
