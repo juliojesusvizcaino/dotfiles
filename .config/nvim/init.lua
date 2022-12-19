@@ -117,6 +117,13 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
+
+require('onedark').setup({
+  transparent = true,
+  lualine = {
+    transparent = true,
+  },
+})
 vim.cmd [[colorscheme onedark]]
 
 -- Set completeopt to have a better completion experience
