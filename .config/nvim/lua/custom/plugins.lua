@@ -41,4 +41,5 @@ return function(use)
   })
 
   use("ThePrimeagen/vim-be-good")
+  use("jose-elias-alvarez/typescript.nvim")
 end

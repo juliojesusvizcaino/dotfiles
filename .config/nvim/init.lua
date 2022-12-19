@@ -365,15 +365,22 @@ require('mason-lspconfig').setup {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+local _, custom_lsp_servers = pcall(require, 'custom.lsp_servers')
+
 for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
+  local custom_server = custom_lsp_servers[lsp]
+  if custom_server then
+    custom_server({ on_attach = on_attach, capabilities = capabilities })
+  else
+    require('lspconfig')[lsp].setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+  end
 end
 
 -- Turn on lsp status information
-require('fidget').setup()
+require('fidget').setup({ window = { blend = 0 } })
 
 -- Example custom configuration for lua
 --
