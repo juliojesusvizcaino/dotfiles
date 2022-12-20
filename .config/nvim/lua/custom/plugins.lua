@@ -42,4 +42,11 @@ return function(use)
 
   use("ThePrimeagen/vim-be-good")
   use("jose-elias-alvarez/typescript.nvim")
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require "telescope".load_extension("frecency")
+    end,
+    requires = { "kkharji/sqlite.lua" }
+  }
 end
