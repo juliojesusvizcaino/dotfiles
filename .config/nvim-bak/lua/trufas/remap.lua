@@ -51,7 +51,7 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "floa
 wk.register({
 	g = {
 		name = "+go to",
-		p = { require('pytrize.api').jump_fixture, "pytest fixture" },
+		p = { require("pytrize.api").jump_fixture, "pytest fixture" },
 	},
 })
 
@@ -61,7 +61,7 @@ wk.register({
 	["<Tab>"] = { "<cmd>Telescope harpoon marks<CR>", "harpoon" },
 	c = {
 		name = "+code", -- optional group name
-        ["<leader>"] = { telescope_builtin.lsp_dynamic_workspace_symbols, "search symbols in project" },
+		["<leader>"] = { telescope_builtin.lsp_dynamic_workspace_symbols, "search symbols in project" },
 		t = {
 			name = "+tests",
 			t = { "<cmd>w<cr><cmd>TestNearest<CR>", "dwim" },
@@ -100,9 +100,9 @@ wk.register({
 		name = "+help",
 		r = { "<cmd>:w<cr><cmd>:so<cr><cmd>PackerSync<cr>", "reload config" },
 	},
-    p = {
-        name = "+project",
-    },
+	p = {
+		name = "+project",
+	},
 	t = {
 		name = "+toggle",
 		b = { agitator.git_blame_toggle, "blame" },

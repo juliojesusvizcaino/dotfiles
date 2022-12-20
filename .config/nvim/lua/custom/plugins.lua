@@ -49,4 +49,6 @@ return function(use)
     end,
     requires = { "kkharji/sqlite.lua" }
   }
+  use("jose-elias-alvarez/null-ls.nvim")
+
 end
