@@ -3,7 +3,7 @@ return function(use)
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup({})
-    end
+    end,
   })
   use({
     "rcarriga/nvim-notify",
@@ -29,7 +29,7 @@ return function(use)
     tag = "*",
     config = function()
       require("toggleterm").setup({
-        open_mapping = "<super-space>",
+        open_mapping = "<a-space>",
       })
     end,
   })
@@ -42,13 +42,28 @@ return function(use)
 
   use("ThePrimeagen/vim-be-good")
   use("jose-elias-alvarez/typescript.nvim")
-  use {
+  use({
     "nvim-telescope/telescope-frecency.nvim",
     config = function()
-      require "telescope".load_extension("frecency")
+      require("telescope").load_extension("frecency")
     end,
-    requires = { "kkharji/sqlite.lua" }
-  }
+    requires = { "kkharji/sqlite.lua" },
+  })
   use("jose-elias-alvarez/null-ls.nvim")
-
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  })
+  use({ "knubie/vim-kitty-navigator", run = "cp ./*.py ~/.config/kitty/" })
+  use({
+    "klen/nvim-test",
+    config = function()
+      require("nvim-test").setup({
+        term = "toggleterm",
+      })
+    end,
+  })
+  use("emmanueltouzery/agitator.nvim")
 end
