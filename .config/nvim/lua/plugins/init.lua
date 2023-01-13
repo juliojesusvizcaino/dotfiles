@@ -22,11 +22,6 @@ return {
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
 		dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-		-- -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
-		-- local has_plugins, plugins = pcall(require, "custom.plugins")
-		-- if has_plugins then
-		--         plugins(use)
-		-- end
 	},
 
 	-- Git related plugins
@@ -85,9 +80,7 @@ return {
 
 	{
 		"numToStr/Comment.nvim",
-		config = function()
-			require("Comment").setup()
-		end,
+		config = true,
 	}, -- "gc" to comment visual regions/lines
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 

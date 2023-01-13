@@ -70,7 +70,7 @@ wk.register({
     },
     h = {
         name = "+help",
-        r = { "<cmd>:w<cr><cmd>:so<cr><cmd>PackerSync<cr>", "reload config" },
+        p = { "<cmd>Lazy<cr>", "Package manager" },
     },
     p = {
         name = "+project",
