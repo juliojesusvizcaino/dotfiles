@@ -1,13 +1,13 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -56,7 +56,6 @@ vim.o.termguicolors = true
 -- 	},
 -- })
 
-
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
@@ -81,13 +80,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
+local trouble = require("trouble.providers.telescope")
+
 require("telescope").setup({
 	defaults = {
 		mappings = {
 			i = {
 				["<C-u>"] = false,
 				["<C-d>"] = false,
+				["<C-t>"] = trouble.open_with_trouble,
 			},
+			n = { ["<C-t>"] = trouble.open_with_trouble },
 		},
 	},
 	extensions = {
