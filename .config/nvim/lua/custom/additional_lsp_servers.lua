@@ -7,10 +7,10 @@ return function(config)
     sources = {
       null_ls.builtins.diagnostics.eslint_d,
       null_ls.builtins.diagnostics.shellcheck,
-      null_ls.builtins.diagnostics.mypy.with({
-        prefer_local = "venv/bin",
-        timeout = 30000,
-      }),
+      -- null_ls.builtins.diagnostics.mypy.with({
+      --   prefer_local = "venv/bin",
+      --   timeout = 30000,
+      -- }),
       null_ls.builtins.diagnostics.flake8.with({
         -- method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
 

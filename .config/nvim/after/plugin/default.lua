@@ -24,7 +24,7 @@ wk.register({
 
 wk.register({
 	["`"] = { "<C-^>", "Change to previous buffer" },
-	["<Tab>"] = { "<cmd>Telescope harpoon marks<CR>", "harpoon" },
+	["<Tab>"] = { require("harpoon.ui").toggle_quick_menu, "harpoon" },
 	c = {
 		name = "+code", -- optional group name
 		t = {
@@ -81,6 +81,9 @@ wk.register({
 		q = { "<cmd>TroubleToggle quickfix<cr>", "toggle quicklist" },
 		r = { "<cmd>TroubleRefresh<cr>", "refresh" },
 	},
+	y = { '"+y', "copy into clipboard", mode = { "n", "v" } },
+	Y = { '"+Y', "copy whole line into clipboard", mode = { "n", "v" } },
+	z = { '"_dP', "paste-no-copy", mode = "x" },
 }, { prefix = "<leader>" })
 
 local harpoon_mappings = {}
