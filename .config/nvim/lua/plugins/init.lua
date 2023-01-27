@@ -29,7 +29,7 @@ return {
 	"tpope/vim-rhubarb",
 	{
 		"lewis6991/gitsigns.nvim",
-		config = {
+		opts = {
 			signs = {
 				add = { text = "+" },
 				change = { text = "~" },
@@ -56,23 +56,34 @@ return {
 				},
 			})
 
-			vim.cmd([[colorscheme tokyonight]])
+			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		config = {
+		opts = {
 			options = {
 				icons_enabled = true,
 				theme = "tokyonight",
 				component_separators = "|",
 				section_separators = "",
 			},
+			sections = {
+				lualine_c = { { "filename", path = 1 } },
+			},
+			inactive_sections = {
+				lualine_c = { { "filename", path = 1 } },
+			},
+			extensions = {
+				"quickfix",
+				"fzf",
+				"toggleterm",
+			},
 		},
 	}, -- Fancier statusline
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		config = {
+		opts = {
 			char = "┊",
 			show_trailing_blankline_indent = false,
 		},

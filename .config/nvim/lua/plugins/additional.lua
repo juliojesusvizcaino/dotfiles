@@ -9,20 +9,14 @@ return {
 	},
 	{
 		"rcarriga/nvim-notify",
-		config = function()
-			require("notify").setup({
-				background_colour = "#000000",
-			})
-		end,
+		opts = {
+			background_colour = "#000000",
+		},
 	},
 	{
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
-		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
-		end,
+		config = true,
 	},
 	{ "nvim-telescope/telescope-file-browser.nvim" },
 	{
@@ -42,9 +36,7 @@ return {
 	},
 	{
 		"AckslD/nvim-pytrize.lua",
-		config = function()
-			require("pytrize").setup()
-		end,
+		config = true,
 	},
 
 	"ThePrimeagen/vim-be-good",
@@ -66,11 +58,9 @@ return {
 	{ "knubie/vim-kitty-navigator", build = "cp ./*.py ~/.config/kitty/" },
 	{
 		"klen/nvim-test",
-		config = function()
-			require("nvim-test").setup({
-				term = "toggleterm",
-			})
-		end,
+		opts = {
+			term = "toggleterm",
+		},
 	},
 	"emmanueltouzery/agitator.nvim",
 	"eandrju/cellular-automaton.nvim",

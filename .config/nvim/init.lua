@@ -129,7 +129,7 @@ vim.keymap.set("n", "<leader>x/", require("telescope.builtin").diagnostics, { de
 -- See `:help nvim-treesitter`
 require("nvim-treesitter.configs").setup({
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { "lua", "python", "typescript", "help" },
+  ensure_installed = { "lua", "python", "typescript", "help", "vim" },
 
   highlight = { enable = true },
   indent = { enable = true },
@@ -252,9 +252,6 @@ require("mason").setup()
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
 local servers = { "pyright", "sumneko_lua" }
-local custom_servers = require("custom.lsp_servers")
-
-vim.list_extend(servers, custom_servers)
 
 -- Ensure the servers above are installed
 require("mason-lspconfig").setup({
@@ -267,28 +264,17 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local custom_setups = {}
 
-for key, setup in pairs(custom_servers) do
+for key, setup in pairs(require("custom.lsp_servers")) do
   custom_setups[key] = function()
     setup({ on_attach = on_attach, capabilities = capabilities })
   end
 end
 
 require("mason-lspconfig").setup_handlers(vim.tbl_extend("force", {
-  function(server_name) -- default handler (optional)
+  function(server_name)
     require("lspconfig")[server_name].setup({ on_attach = on_attach, capabilities = capabilities })
   end,
 }, custom_setups))
-
--- for _, lsp in ipairs(servers) do
---   local setup = custom_lsp_servers[lsp]
---   if not setup then
---     setup = require("lspconfig")[lsp].setup
---   end
---   setup({
---     on_attach = on_attach,
---     capabilities = capabilities,
---   })
--- end
 
 local has_additonal_lsp_servers, additional_lsp_servers = pcall(require, "custom.additional_lsp_servers")
 
