@@ -56,13 +56,33 @@ return {
 		end,
 	},
 	{ "knubie/vim-kitty-navigator", build = "cp ./*.py ~/.config/kitty/" },
-	{
-		"klen/nvim-test",
-		opts = {
-			term = "toggleterm",
-		},
-	},
 	"emmanueltouzery/agitator.nvim",
 	"eandrju/cellular-automaton.nvim",
 	"rafamadriz/friendly-snippets",
+	{
+		"jayp0521/mason-nvim-dap.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"mfussenegger/nvim-dap",
+		},
+	},
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-neotest/neotest-python",
+			"mfussenegger/nvim-dap",
+		},
+		config = function()
+			require("neotest").setup({
+				adapters = {
+					require("neotest-python")({
+						args = { "--log-level", "DEBUG", "--no-cov" },
+					}),
+				},
+			})
+		end,
+	},
+	"anuvyklack/hydra.nvim",
 }
