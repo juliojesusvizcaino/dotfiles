@@ -72,6 +72,21 @@ wk.register({
 			end,
 			"time machine",
 		},
+		o = {
+			name = "+open",
+			o = {
+				function()
+					require("gitlinker").get_buf_range_url(
+						"v",
+						{ action_callback = require("gitlinker.actions").open_in_browser }
+					)
+				end,
+				"Browse file",
+				silent = true,
+				mode = { "n", "v" },
+			},
+		},
+		y = { require("gitlinker").get_buf_range_url, "Copy link to remote" },
 	},
 	h = {
 		name = "+help",

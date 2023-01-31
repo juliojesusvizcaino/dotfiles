@@ -79,10 +79,30 @@ return {
 				adapters = {
 					require("neotest-python")({
 						args = { "--log-level", "DEBUG", "--no-cov" },
+						dap = { justMyCode = false },
 					}),
 				},
 			})
 		end,
 	},
 	"anuvyklack/hydra.nvim",
+	{ "windwp/nvim-autopairs", config = true },
+	{ "TimUntersberger/neogit", dependencies = "nvim-lua/plenary.nvim" },
+	{
+		"ruifm/gitlinker.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		config = function()
+			require("gitlinker").setup({
+				mappings = nil,
+				callbacks = {
+					["code.earth.planet.com"] = function(url_data)
+						url_data.host = "hello.planet.com/code"
+						local a = require("gitlinker.hosts").get_gitlab_type_url(url_data)
+						print(a)
+						return a
+					end,
+				},
+			})
+		end,
+	},
 }

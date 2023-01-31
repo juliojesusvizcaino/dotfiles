@@ -100,6 +100,14 @@ require("telescope").setup({
 			hidden = true,
 		},
 	},
+	pickers = {
+		live_grep = {
+			additional_args = { "--hidden" },
+		},
+		grep_string = {
+			additional_args = { "--hidden" },
+		},
+	},
 })
 
 -- Enable telescope fzf native, if installed
@@ -119,7 +127,7 @@ vim.keymap.set("n", "<leader>f/", function()
 	}))
 end, { desc = "[/] Fuzzily search in current buffer]" })
 
-vim.keymap.set("n", "<leader><space>", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader><space>", require("telescope.builtin").git_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>h/", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>*", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
 vim.keymap.set("n", "<leader>/", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
@@ -360,6 +368,10 @@ cmp.setup({
 		{ name = "luasnip" },
 	},
 })
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
