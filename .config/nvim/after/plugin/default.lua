@@ -85,8 +85,22 @@ wk.register({
 				silent = true,
 				mode = { "n", "v" },
 			},
+			h = {
+				function()
+					require("gitlinker").get_repo_url({
+						action_callback = require("gitlinker.actions").open_in_browser,
+					})
+				end,
+				"Browse file",
+			},
 		},
 		y = { require("gitlinker").get_buf_range_url, "Copy link to remote" },
+		Y = {
+			function()
+				require("gitlinker").get_repo_url()
+			end,
+			"Copy link to homepage",
+		},
 	},
 	h = {
 		name = "+help",
