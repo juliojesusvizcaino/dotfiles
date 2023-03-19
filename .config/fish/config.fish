@@ -22,22 +22,28 @@
 #     end
 # end
 
+## Modified to source the generated file directly (so it isn't created every time)
 # pyenv init
 if command -v pyenv 1>/dev/null 2>&1
-    pyenv init - | source
+  # pyenv init - | source
+  source /home/julio/.config/fish/pyenv.fish
 end
 
 direnv hook fish | source
 
+## Modified to source the generated file directly (so it isn't created every time)
 if test -e /home/julio/mambaforge/bin/conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /home/julio/mambaforge/bin/conda "shell.fish" "hook" $argv | source
+# eval /home/julio/mambaforge/bin/conda "shell.fish" "hook" $argv | source
+  source /home/julio/.config/fish/conda.fish
 # <<< conda initialize <<<
 end
 
+## Modified to source the generated file directly (so it isn't created every time)
 if command -v starship 1>/dev/null 2>&1
-    starship init fish | source
+  # starship init fish | source
+  source /home/julio/.config/fish/starship.fish
 end
 # status --is-login; and status --is-interactive; and exec byobu-launcher
 set -gx VOLTA_HOME "$HOME/.volta"

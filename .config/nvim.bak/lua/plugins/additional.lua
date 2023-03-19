@@ -97,9 +97,7 @@ return {
 				callbacks = {
 					["code.earth.planet.com"] = function(url_data)
 						url_data.host = "hello.planet.com/code"
-						local a = require("gitlinker.hosts").get_gitlab_type_url(url_data)
-						print(a)
-						return a
+						return require("gitlinker.hosts").get_gitlab_type_url(url_data)
 					end,
 				},
 			})
