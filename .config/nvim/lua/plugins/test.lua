@@ -27,7 +27,6 @@ return {
           require("mason-nvim-dap").setup_handlers()
         end,
         dependencies = {
-
           "williamboman/mason.nvim",
           "mfussenegger/nvim-dap",
         },

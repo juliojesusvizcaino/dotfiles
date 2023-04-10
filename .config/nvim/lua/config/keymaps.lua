@@ -14,3 +14,8 @@ vim.keymap.set("n", "<C-h>", "<cmd>KittyNavigateLeft<cr>", { desc = "Go to left 
 vim.keymap.set("n", "<C-j>", "<cmd>KittyNavigateDown<cr>", { desc = "Go to lower window" })
 vim.keymap.set("n", "<C-k>", "<cmd>KittyNavigateUp<cr>", { desc = "Go to upper window" })
 vim.keymap.set("n", "<C-l>", "<cmd>KittyNavigateRight<cr>", { desc = "Go to right window" })
+
+-- escape on virtual terminals
+vim.keymap.del("t", "<esc><esc>")
+
+vim.keymap.set("t", "<C-esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })

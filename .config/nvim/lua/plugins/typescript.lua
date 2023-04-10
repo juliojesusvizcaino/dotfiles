@@ -8,5 +8,6 @@ return {
   --     })
   --   end,
   -- },
-  { import = "lazyvim.plugins.extras.formatting.prettier" },
+  -- Already handled by mason-null-ls
+  -- { import = "lazyvim.plugins.extras.formatting.prettier" },
 }
