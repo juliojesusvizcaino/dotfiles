@@ -14,6 +14,7 @@ return {
             extra_args = function(_)
               return { "--config", "black.toml" }
             end,
+            timeout = 10000,
           }))
         end,
       },
