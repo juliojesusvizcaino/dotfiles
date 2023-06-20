@@ -1,6 +1,26 @@
 ---@type LazyConfig
 return {
   {
+    "stevearc/oil.nvim",
+    opts = {
+      view_options = {
+        show_hidden = true,
+      },
+    },
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      {
+        "-",
+        function()
+          require("oil").open()
+        end,
+        mode = { "n" },
+        desc = "Open parent directory",
+      },
+    },
+  },
+  {
     "nvim-telescope/telescope-file-browser.nvim",
     config = function()
       require("telescope").load_extension("file_browser")

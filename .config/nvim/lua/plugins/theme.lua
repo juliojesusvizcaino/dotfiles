@@ -1,3 +1,22 @@
+-- if true then
+--   return {
+--     {
+--       "catppuccin/nvim",
+--       lazy = true,
+--       name = "catppuccin",
+--       opts = {
+--         flavour = "mocha",
+--         transparent_background = true,
+--       },
+--     },
+--     {
+--       "LazyVim/LazyVim",
+--       opts = {
+--         colorscheme = "catppuccin",
+--       },
+--     },
+--   }
+-- end
 ---@type LazyConfig
 return {
   {

@@ -10,10 +10,15 @@ vim.keymap.del("n", "<leader><tab>]")
 vim.keymap.del("n", "<leader><tab>d")
 vim.keymap.del("n", "<leader><tab>[")
 
-vim.keymap.set("n", "<C-h>", "<cmd>KittyNavigateLeft<cr>", { desc = "Go to left window" })
-vim.keymap.set("n", "<C-j>", "<cmd>KittyNavigateDown<cr>", { desc = "Go to lower window" })
-vim.keymap.set("n", "<C-k>", "<cmd>KittyNavigateUp<cr>", { desc = "Go to upper window" })
-vim.keymap.set("n", "<C-l>", "<cmd>KittyNavigateRight<cr>", { desc = "Go to right window" })
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>")
+
+vim.keymap.set("n", "<M-h>", "<cmd>KittyNavigateLeft<cr>", { desc = "Go to left window" })
+vim.keymap.set("n", "<M-j>", "<cmd>KittyNavigateDown<cr>", { desc = "Go to lower window" })
+vim.keymap.set("n", "<M-k>", "<cmd>KittyNavigateUp<cr>", { desc = "Go to upper window" })
+vim.keymap.set("n", "<M-l>", "<cmd>KittyNavigateRight<cr>", { desc = "Go to right window" })
 
 -- escape on virtual terminals
 vim.keymap.del("t", "<esc><esc>")

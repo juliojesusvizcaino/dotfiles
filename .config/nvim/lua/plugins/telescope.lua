@@ -27,14 +27,14 @@ return {
         end,
       },
       --   Error  10:55:36 msg_show.emsg E5108: Error executing lua: ...escope-all-recent.nvim/lua/telescope-all-recent/init.lua:35: attempt to index local 'select_opts' (a nil value)
-      -- {
-      --   "prochri/telescope-all-recent.nvim",
-      --   config = true,
-      --   dependencies = {
-      --     "nvim-telescope/telescope.nvim",
-      --     "kkharji/sqlite.lua",
-      --   },
-      -- },
+      {
+        "prochri/telescope-all-recent.nvim",
+        config = true,
+        dependencies = {
+          "nvim-telescope/telescope.nvim",
+          "kkharji/sqlite.lua",
+        },
+      },
     },
   },
 }
