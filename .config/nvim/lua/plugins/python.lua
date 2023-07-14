@@ -1,6 +1,12 @@
 ---@type LazyConfig
 return {
   {
+    "linux-cultist/venv-selector.nvim",
+    opts = {
+      anaconda_path = "/home/julio/mambaforge/envs/",
+    },
+  },
+  {
     "nvim-neotest/neotest",
     dependencies = { "nvim-neotest/neotest-python" },
     opts = {

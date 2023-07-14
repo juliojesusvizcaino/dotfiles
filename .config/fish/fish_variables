@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export CLOUDSDK_PYTHON:/home/julio/\x2epyenv/shims/python
+SETUVAR --export CONDA_PREFIX:/home/julio/mambaforge/
 SETUVAR --path CPLUS_INCLUDE_PATH:/usr/include/gdal
 SETUVAR --path C_INCLUDE_PATH:/usr/include/gdal
 SETUVAR --export --path DAMSAT_SHARE_PATH:/home/julio/Documents/vandersat/data/damsat_share
