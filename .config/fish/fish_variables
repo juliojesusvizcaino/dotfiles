@@ -8,6 +8,7 @@ SETUVAR --export --path DAMSAT_SHARE_PATH:/home/julio/Documents/vandersat/data/d
 SETUVAR --export EDITOR:nvim
 SETUVAR --export MAPBOX_ACCESS_TOKEN:sk\x2eeyJ1Ijoiamp2aXpjYWlubyIsImEiOiJja21jNjEyb2sxd2tyMnptem13dGpsbHh6In0\x2eitg3qsyUXoQitc2DkKlWRw
 SETUVAR --export ONESAT_TILES_DIR:/home/julio/Documents/vandersat/data/onesat_tiles
+SETUVAR --export OPENAI_API_HOST:api\x2eopenai\x2ecom
 SETUVAR --export PYENV_ROOT:/home/julio/\x2epyenv
 SETUVAR --export VISUAL:nvim
 SETUVAR --export XDG_CONFIG_HOME:/home/julio/\x2econfig
@@ -62,4 +63,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR --export fish_user_paths:/home/julio/\x2ecargo/bin\x1e/home/julio/\x2epoetry/bin\x1e/home/julio/\x2edoom\x2eemacs/bin/\x1e/home/julio/\x2epyenv/bin\x1e/home/julio/\x2eemacs\x2ed/bin/\x1e/home/julio/\x2efzf/bin
+SETUVAR --export fish_user_paths:/home/julio/\x2elocal/share/bob/nvim\x2dbin\x1e/home/julio/\x2ecargo/bin\x1e/home/julio/\x2epoetry/bin\x1e/home/julio/\x2edoom\x2eemacs/bin/\x1e/home/julio/\x2epyenv/bin\x1e/home/julio/\x2eemacs\x2ed/bin/\x1e/home/julio/\x2efzf/bin

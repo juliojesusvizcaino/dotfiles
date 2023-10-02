@@ -95,3 +95,5 @@ zoxide init fish | source
 set -gx PNPM_HOME "/home/julio/.local/share/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
 # pnpm end
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/julio/.ghcup/bin $PATH # ghcup-env
