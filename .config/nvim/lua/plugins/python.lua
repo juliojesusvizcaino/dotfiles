@@ -19,21 +19,30 @@ return {
     },
   },
   {
-    "jay-babu/mason-null-ls.nvim",
-    opts = {
-      handlers = {
-        black = function()
-          local null_ls = require("null-ls")
-          null_ls.register(null_ls.builtins.formatting.black.with({
-            timeout = 10000,
-            extra_args = function(_)
-              return { "--config", "black.toml" }
-            end,
-          }))
-        end,
-      },
-    },
+    "stevearc/conform.nvim",
+    optional = true,
+    config = function(_, opts)
+      local util = require("conform.util")
+      util.add_formatter_args(require("conform.formatters.black"), { "--config", "black.toml" })
+      require("conform").setup(opts)
+    end,
   },
+  -- {
+  --   "jay-babu/mason-null-ls.nvim",
+  --   opts = {
+  --     handlers = {
+  --       black = function()
+  --         local null_ls = require("null-ls")
+  --         null_ls.register(null_ls.builtins.formatting.black.with({
+  --           timeout = 10000,
+  --           extra_args = function(_)
+  --             return { "--config", "black.toml" }
+  --           end,
+  --         }))
+  --       end,
+  --     },
+  --   },
+  -- },
   {
     "AckslD/nvim-pytrize.lua",
     opts = {},
