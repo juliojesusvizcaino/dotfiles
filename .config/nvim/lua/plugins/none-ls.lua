@@ -1,12 +1,14 @@
----@type LazyConfig
-return {
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
-      "williamboman/mason.nvim",
-      "nvimtools/none-ls.nvim",
-    },
-    opts = {},
-  },
-}
+return {}
+-- Stop using none-ls, remove it if everything works as expected
+-- ---@type LazyConfig
+-- return {
+--   {
+--     "jay-babu/mason-null-ls.nvim",
+--     event = { "BufReadPre", "BufNewFile" },
+--     dependencies = {
+--       "williamboman/mason.nvim",
+--       "nvimtools/none-ls.nvim",
+--     },
+--     opts = {},
+--   },
+-- }

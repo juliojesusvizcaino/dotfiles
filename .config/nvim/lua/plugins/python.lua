@@ -20,12 +20,19 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    optional = true,
-    config = function(_, opts)
-      local util = require("conform.util")
-      util.add_formatter_args(require("conform.formatters.black"), { "--config", "black.toml" })
-      require("conform").setup(opts)
-    end,
+    opts = {
+      formatters = {
+        black = {
+          extra_args = { "--config", "black.toml" }
+        }
+      }
+    }
+    -- This is no longer necessary because of the `extra_args` above
+    -- config = function(_, opts)
+    --   local util = require("conform.util")
+    --   util.add_formatter_args(require("conform.formatters.black"), { "--config", "black.toml" })
+    --   require("conform").setup(opts)
+    -- end,
   },
   -- {
   --   "jay-babu/mason-null-ls.nvim",

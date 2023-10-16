@@ -1,14 +1,15 @@
 ---@type LazyConfig
 return {
   -- You exceeded your current quota :shrug:
+  --   you need to pay
   -- {
   --   "jackMort/ChatGPT.nvim",
   --   event = "VeryLazy",
-  --   commit = "24bcca7", -- https://github.com/jackMort/ChatGPT.nvim/issues/265
+  --   commit = "62443c9eb261e641d20af143357b157e3f542bb5",
   --   config = function()
   --     require("chatgpt").setup({
-  --       api_key_cmd = "pass show openai",
-  --       api_host_cmd = "echo -n 'api.openai.com'",
+  --       api_key_cmd = "pass show openai-nucleoo",
+  --       -- api_host_cmd = "echo -n 'api.openai.com'",
   --     })
   --   end,
   --   dependencies = {

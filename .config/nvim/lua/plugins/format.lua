@@ -2,7 +2,8 @@ return {
   {
     "nvim-lspconfig",
     opts = {
-      autoformat = false,
+      -- now: vim.g.autoformat = false
+      -- autoformat = false,
       format = {
         timeout_ms = 10000,
       },
