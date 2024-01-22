@@ -1,18 +1,29 @@
 ---@type LazyConfig
 return {
+  -- {
+  --   "nvimdev/lspsaga.nvim",
+  --   config = function()
+  --     require("lspsaga").setup({})
+  --   end,
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter", -- optional
+  --     "nvim-tree/nvim-web-devicons", -- optional
+  --   },
+  --   event = "LspAttach",
+  -- },
   {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = {
-        enabled = true
+        enabled = true,
       },
       servers = {
         lua_ls = {
           settings = {
             Lua = {
-              hint = { enable = true }
-            }
-          }
+              hint = { enable = true },
+            },
+          },
         },
         tsserver = {
           settings = {
@@ -22,30 +33,30 @@ return {
                 includeInlayEnumMemberValueHints = true,
                 includeInlayFunctionLikeReturnTypeHints = true,
                 includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHints = "all",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = true, -- false
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true -- false
-              }
+                includeInlayVariableTypeHintsWhenTypeMatchesName = true, -- false
+              },
             },
             javascript = {
               inlayHints = {
                 includeInlayEnumMemberValueHints = true,
                 includeInlayFunctionLikeReturnTypeHints = true,
                 includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = 'all',
+                includeInlayParameterNameHints = "all",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = true,
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true
-              }
+                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+              },
             },
           },
         },
-      }
-    }
-  }
+      },
+    },
+  },
 }
 -- I want bordered hover :(
 -- ---@type LazyConfig

@@ -8,7 +8,10 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    dependencies = { "nvim-neotest/neotest-python" },
+    dependencies = {
+      "nvim-neotest/neotest-python",
+      "nvim-treesitter/nvim-treesitter",
+    },
     opts = {
       adapters = {
         ["neotest-python"] = {
@@ -18,35 +21,13 @@ return {
       },
     },
   },
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters = {
-        black = {
-          extra_args = { "--config", "black.toml" }
-        }
-      }
-    }
-    -- This is no longer necessary because of the `extra_args` above
-    -- config = function(_, opts)
-    --   local util = require("conform.util")
-    --   util.add_formatter_args(require("conform.formatters.black"), { "--config", "black.toml" })
-    --   require("conform").setup(opts)
-    -- end,
-  },
   -- {
-  --   "jay-babu/mason-null-ls.nvim",
+  --   "stevearc/conform.nvim",
   --   opts = {
-  --     handlers = {
-  --       black = function()
-  --         local null_ls = require("null-ls")
-  --         null_ls.register(null_ls.builtins.formatting.black.with({
-  --           timeout = 10000,
-  --           extra_args = function(_)
-  --             return { "--config", "black.toml" }
-  --           end,
-  --         }))
-  --       end,
+  --     formatters = {
+  --       black = {
+  --         prepend_args = { "--config", "black.toml" },
+  --       },
   --     },
   --   },
   -- },
@@ -67,68 +48,4 @@ return {
       },
     },
   },
-  -- opts = function(_, opts)
-  --   local null_ls = require("null-ls")
-  --   -- local h = require("null-ls.helpers")
-  --   -- local blackd = {
-  --   --   name = "blackd",
-  --   --   method = null_ls.methods.FORMATTING,
-  --   --   filetypes = { "python" },
-  --   --   generator = h.formatter_factory({
-  --   --     command = "curl",
-  --   --     args = { "localhost:45484", "-s", "-XPOST", "-H", "X-Line-Length: 100", "--data-binary", "@-" },
-  --   --     to_stdin = true,
-  --   --     timeout = 10000,
-  --   --   }),
-  --   -- }
-  --   opts.handlers = opts.handlers or {}
-  --   vim.list_extend(opts.handlers, {
-  --     -- blackd,
-  --     black = function()
-  --       null_ls.register(null_ls.builtins.formatting.black.with({
-  --         extra_args = function(_)
-  --           return { "--config", "black.toml" }
-  --         end,
-  --       }))
-  --     end,
-  --   })
-  -- end,
-  -- },
-  -- {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   opts = function(_, opts)
-  --     local null_ls = require("null-ls")
-  --     local h = require("null-ls.helpers")
-  --     local blackd = {
-  --       name = "blackd",
-  --       method = null_ls.methods.FORMATTING,
-  --       filetypes = { "python" },
-  --       generator = h.formatter_factory({
-  --         command = "curl",
-  --         args = { "localhost:45484", "-s", "-XPOST", "-H", "X-Line-Length: 100", "--data-binary", "@-" },
-  --         to_stdin = true,
-  --         timeout = 10000,
-  --       }),
-  --     }
-  --     -- blackd-client doesn't take into account the pyproject.toml config
-  --     -- local blackd = {
-  --     --   name = "blackd",
-  --     --   method = null_ls.methods.FORMATTING,
-  --     --   filetypes = { "python" },
-  --     --   generator = h.formatter_factory({
-  --     --     command = "blackd-client",
-  --     --     to_stdin = true,
-  --     --     timeout = 3000,
-  --     --   }),
-  --     -- }
-  --     vim.list_extend(opts.sources, {
-  --       blackd,
-  --       -- null_ls.builtins.formatting.black.with({
-  --       --   extra_args = function(_)
-  --       --     return { "--config", "black.toml" }
-  --       --   end,
-  --       -- }),
-  --     })
-  --   end,
-  -- },
 }

@@ -9,6 +9,11 @@ vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]
 vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
 vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
 
+-- Some html files are recognized as html.angular, which breaks LSPs.
+--   Trying to add html.angular as a valid extension for those LSPs raises
+--   some errors, and tailwind doesn't work at all
+vim.cmd([[autocmd BufNewFile,BufRead *.html :set filetype=html]])
+
 vim.api.nvim_create_autocmd("User", {
   pattern = "TelescopePreviewerLoaded",
   callback = function(args)
