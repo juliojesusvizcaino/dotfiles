@@ -33,8 +33,8 @@ return {
       require("gitlinker").setup({
         mappings = nil,
         callbacks = {
-          ["code.earth.planet.com"] = function(url_data)
-            url_data.host = "hello.planet.com/code"
+          ["hub.nucleoo.com"] = function(url_data)
+            -- url_data.host = "hello.planet.com/code"
             return require("gitlinker.hosts").get_gitlab_type_url(url_data)
           end,
         },

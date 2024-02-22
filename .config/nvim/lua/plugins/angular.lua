@@ -4,7 +4,6 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, { "angular" })
     end,
-    dependencies = { "nvim-treesitter/nvim-treesitter-angular" },
   },
   {
     "williamboman/mason.nvim",
