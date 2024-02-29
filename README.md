@@ -1,4 +1,0 @@
-```sh
-cd ~/.dotfiles
-stow .
-```
