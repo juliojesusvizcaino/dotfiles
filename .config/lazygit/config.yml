@@ -1,0 +1,10 @@
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+
+services:
+  'hub.nucleoo.com': 'gitlab:hub.nucleoo.com'
+
+os:
+  editPreset: 'nvim-remote'

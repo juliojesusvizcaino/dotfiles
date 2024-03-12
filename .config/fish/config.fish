@@ -72,8 +72,6 @@ set -g fish_pager_color_selected_background --background=$selection
 
 fish_vi_key_bindings
 
-zoxide init fish | source
-
 # pnpm
 set -gx PNPM_HOME "/home/julio/.local/share/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
@@ -82,3 +80,4 @@ set -gx PATH "$PNPM_HOME" $PATH
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /home/julio/.ghcup/bin $PATH # ghcup-env
 ~/.local/bin/mise activate fish | source
 
+zoxide init fish | source
