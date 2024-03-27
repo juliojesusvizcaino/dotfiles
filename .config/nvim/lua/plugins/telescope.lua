@@ -18,8 +18,8 @@ return {
     keys = {
       { "<leader>/", require("telescope.builtin").live_grep, desc = "Find in Files (Grep)" },
       { "<leader>*", require("telescope.builtin").grep_string, desc = "[S]earch current [W]ord" },
-      { "<leader>h/", require("telescope.builtin").help_tags, desc = "[S]earch [H]elp" },
-      { "<leader>hk", require("telescope.builtin").keymaps, desc = "[S]earch [H]elp" },
+      -- { "<leader>h/", require("telescope.builtin").help_tags, desc = "[S]earch [H]elp" },
+      -- { "<leader>hk", require("telescope.builtin").keymaps, desc = "[S]earch [H]elp" },
     },
     dependencies = {
       {
