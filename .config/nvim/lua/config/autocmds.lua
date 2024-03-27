@@ -9,6 +9,20 @@ vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]
 vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
 vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
 
+-- docker-compose.yaml is not recognized as yaml.docker-compose
+function docker_fix()
+    local filename = vim.fn.expand("%:t")
+
+    if filename == "docker-compose.yaml" or filename == "docker-compose.yml" then
+        vim.bo.filetype = "yaml.docker-compose"
+        print("matched!")
+    else
+        print(filename)
+    end
+end
+
+vim.cmd[[autocmd BufRead *.yaml,*.yml lua docker_fix()]]
+
 -- Some html files are recognized as html.angular, which breaks LSPs.
 --   Trying to add html.angular as a valid extension for those LSPs raises
 --   some errors, and tailwind doesn't work at all
