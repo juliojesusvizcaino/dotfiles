@@ -35,4 +35,17 @@ return {
       background_colour = "#000000",
     },
   },
+  {
+    "catppuccin",
+    opts = {
+      flavour = "frappe", -- latte, frappe, macchiato, mocha
+      transparent_background = true,
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
 }
