@@ -31,6 +31,10 @@ vim.cmd([[autocmd BufNewFile,BufRead *.html :set filetype=html]])
 vim.api.nvim_create_autocmd("User", {
   pattern = "TelescopePreviewerLoaded",
   callback = function(args)
+    if not args.data or not args.data.bufname then
+      return
+    end
+
     if args.data.bufname:match("%.tfvars$") then
       vim.bo.filetype = "terraform"
     elseif args.data.bufname:match("%.terraformrc$") then

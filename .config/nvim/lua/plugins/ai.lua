@@ -16,14 +16,39 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     branch = "canary",
     dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+      "zbirenbaum/copilot.lua", -- or github/copilot.vim
+      "nvim-lua/plenary.nvim", -- for curl, log wrapper
+      "nvim-telescope/telescope.nvim",
     },
     opts = {
-      debug = true, -- Enable debugging
+      -- debug = true, -- Enable debugging
       -- See Configuration section for rest
+      context = "buffers",
     },
+    lazy = false,
     -- See Commands section for default commands if you want to lazy load on them
+    keys = {
+      -- Show help actions with telescope
+      {
+        "<leader>czh",
+        function()
+          local actions = require("CopilotChat.actions")
+          require("CopilotChat.integrations.telescope").pick(actions.help_actions())
+        end,
+        desc = "CopilotChat - Help actions",
+        mode = { "n", "v" },
+      },
+      -- Show prompts actions with telescope
+      {
+        "<leader>czp",
+        function()
+          local actions = require("CopilotChat.actions")
+          require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+        end,
+        desc = "CopilotChat - Prompt actions",
+        mode = { "n", "v" },
+      },
+    },
   },
   -- You exceeded your current quota :shrug:
   --   you need to pay
