@@ -4,8 +4,8 @@ return {
     "Exafunction/codeium.nvim",
     opts = {
       enable_chat = true,
-      -- enable_local_search = true,
-      -- enable_index_service = true,
+      enable_local_search = true,
+      enable_index_service = true,
       -- tools = {
       --   language_server = "/home/julio/.local/lib/language_server_linux_x64",
       -- },

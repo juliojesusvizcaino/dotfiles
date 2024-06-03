@@ -23,9 +23,10 @@ return {
       -- Enable this to enable the builtin LSP code lenses on Neovim >= 0.10.0
       -- Be aware that you also will need to properly configure your LSP server to
       -- provide the code lenses.
-      codelens = {
-        enabled = true,
-      },
+      -- This gives a lot of errors for some files.
+      -- codelens = {
+      --   enabled = true,
+      -- },
       servers = {
         lua_ls = {
           settings = {
@@ -34,35 +35,35 @@ return {
             },
           },
         },
-        tsserver = {
-          settings = {
-            typescript = {
-              inlayHints = {
-                -- taken from https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true, -- false
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true, -- false
-              },
-            },
-            javascript = {
-              inlayHints = {
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-              },
-            },
-          },
-        },
+        -- tsserver = {
+        --   settings = {
+        --     typescript = {
+        --       inlayHints = {
+        --         -- taken from https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
+        --         includeInlayEnumMemberValueHints = true,
+        --         includeInlayFunctionLikeReturnTypeHints = true,
+        --         includeInlayFunctionParameterTypeHints = true,
+        --         includeInlayParameterNameHints = "all",
+        --         includeInlayParameterNameHintsWhenArgumentMatchesName = true, -- false
+        --         includeInlayPropertyDeclarationTypeHints = true,
+        --         includeInlayVariableTypeHints = true,
+        --         includeInlayVariableTypeHintsWhenTypeMatchesName = true, -- false
+        --       },
+        --     },
+        --     javascript = {
+        --       inlayHints = {
+        --         includeInlayEnumMemberValueHints = true,
+        --         includeInlayFunctionLikeReturnTypeHints = true,
+        --         includeInlayFunctionParameterTypeHints = true,
+        --         includeInlayParameterNameHints = "all",
+        --         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        --         includeInlayPropertyDeclarationTypeHints = true,
+        --         includeInlayVariableTypeHints = true,
+        --         includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+        --       },
+        --     },
+        --   },
+        -- },
       },
     },
   },
