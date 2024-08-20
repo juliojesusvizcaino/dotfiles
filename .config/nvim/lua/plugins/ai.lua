@@ -1,6 +1,26 @@
 ---@type LazyConfig
 return {
   {
+    "nvim-cmp",
+    dependencies = {
+      -- codeium
+      {
+        "Exafunction/codeium.nvim",
+        cmd = "Codeium",
+        build = ":Codeium Auth",
+        opts = {},
+      },
+    },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      for _, source in ipairs(opts.sources) do
+        if source.name == "codeium" then
+          source.priority = 1
+        end
+      end
+    end,
+  },
+  {
     "Exafunction/codeium.nvim",
     opts = {
       enable_chat = true,

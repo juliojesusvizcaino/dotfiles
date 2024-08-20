@@ -4,6 +4,15 @@ return {
     "ThePrimeagen/harpoon",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      -- LSP keymaps
+      {
+        "neovim/nvim-lspconfig",
+        opts = function()
+          local keys = require("lazyvim.plugins.lsp.keymaps").get()
+          -- disable a keymap
+          keys[#keys + 1] = { "<M-n>", false }
+        end,
+      },
     },
     keys = {
       {
