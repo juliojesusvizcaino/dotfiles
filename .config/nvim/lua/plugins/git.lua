@@ -1,6 +1,14 @@
 ---@type LazyConfig
 return {
   {
+    "petertriho/cmp-git",
+    opts = {
+      gitlab = {
+        hosts = { "hub.nucleoo.com" },
+      },
+    },
+  },
+  {
     "emmanueltouzery/agitator.nvim",
     keys = {
       {
@@ -34,7 +42,6 @@ return {
         mappings = nil,
         callbacks = {
           ["hub.nucleoo.com"] = function(url_data)
-            -- url_data.host = "hello.planet.com/code"
             return require("gitlinker.hosts").get_gitlab_type_url(url_data)
           end,
         },
