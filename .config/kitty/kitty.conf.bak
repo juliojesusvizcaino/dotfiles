@@ -2351,6 +2351,6 @@ map <alt+shift+r> {  # Replace `<C-A-r>` with your desired shortcut (e.g., `<C-S
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Latte
+# Catppuccin-Frappe
 include current-theme.conf
 # END_KITTY_THEME

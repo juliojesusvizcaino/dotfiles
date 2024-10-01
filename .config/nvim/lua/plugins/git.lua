@@ -44,6 +44,9 @@ return {
           ["hub.nucleoo.com"] = function(url_data)
             return require("gitlinker.hosts").get_gitlab_type_url(url_data)
           end,
+          ["bitbucket.mova.indra.es"] = function(url_data)
+            return require("gitlinker.hosts").get_bitbucket_type_url(url_data)
+          end,
         },
       })
     end,

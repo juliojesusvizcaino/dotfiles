@@ -4,9 +4,11 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
+    version = false, -- set this if you want to always pull the latest change
     ---@type avante.Config
     opts = {
       provider = "copilot", -- Only recommend using Claude
+      auto_suggestions_provider = "copilot",
       silent_warning = false, -- Add the missing field
     },
     keys = {
@@ -34,6 +36,9 @@ return {
         mode = "v",
       },
     },
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
@@ -59,7 +64,7 @@ return {
         },
       },
       {
-        -- Make sure to setup it properly if you have lazy=true
+        -- Make sure to set this up properly if you have lazy=true
         "MeanderingProgrammer/render-markdown.nvim",
         opts = {
           file_types = { "markdown", "Avante" },
@@ -110,5 +115,16 @@ return {
     opts = {
       panel = { enabled = true },
     },
+  },
+  {
+    "nvim-cmp",
+    dependencies = { { "zbirenbaum/copilot-cmp" } },
+    opts = function(_, opts)
+      for _, source in ipairs(opts.sources) do
+        if source.name == "copilot" then
+          source.group_index = 2
+        end
+      end
+    end,
   },
 }
