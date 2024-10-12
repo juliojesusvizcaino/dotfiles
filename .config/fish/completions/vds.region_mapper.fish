@@ -1,1 +1,0 @@
-complete --command vds.region_mapper --no-files --arguments "(env _VDS.REGION_MAPPER_COMPLETE=complete_fish _TYPER_COMPLETE_FISH_ACTION=get-args _TYPER_COMPLETE_ARGS=(commandline -cp) vds.region_mapper)" --condition "env _VDS.REGION_MAPPER_COMPLETE=complete_fish _TYPER_COMPLETE_FISH_ACTION=is-args _TYPER_COMPLETE_ARGS=(commandline -cp) vds.region_mapper"

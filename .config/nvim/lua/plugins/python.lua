@@ -1,6 +1,17 @@
 ---@type LazyConfig
 return {
   {
+    "neovim/nvim-lspconfig",
+    event = "LazyFile",
+    opts = {
+      servers = {
+        basedpyright = {
+          mason = false,
+        },
+      },
+    },
+  },
+  {
     "linux-cultist/venv-selector.nvim",
     opts = {
       anaconda_path = "/home/julio/mambaforge/envs/",

@@ -1,1 +1,0 @@
-complete --command region-mapper --no-files --arguments "(env _REGION_MAPPER_COMPLETE=complete_fish _TYPER_COMPLETE_FISH_ACTION=get-args _TYPER_COMPLETE_ARGS=(commandline -cp) region-mapper)" --condition "env _REGION_MAPPER_COMPLETE=complete_fish _TYPER_COMPLETE_FISH_ACTION=is-args _TYPER_COMPLETE_ARGS=(commandline -cp) region-mapper"
