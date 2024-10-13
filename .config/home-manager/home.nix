@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+let
+
+  pkgsGL = import <nixgl> { };
+
+in
+
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -24,6 +30,7 @@
     pkgs.ripgrep
     pkgs.lazygit
     pkgs.kitty
+    pkgsGL.auto.nixGLDefault
     pkgs.nil
     pkgs.nixfmt-rfc-style
     pkgs.neovim
@@ -60,6 +67,18 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".config/regolith3/Xresources".source = regolith/Xresources;
+    ".config/regolith3/default_terminal" = {
+      text = ''
+        #!/usr/bin/sh
+        nixGL kitty
+      '';
+      executable = true;
+    };
+
+    ".local/share/applications/kitty.desktop".source = kitty/kitty.desktop;
+    ".local/share/applications/kitty-open.desktop".source = kitty/kitty-open.desktop;
+    ".local/share/icons/hicolor/256x256/apps/kitty.png".source = kitty/kitty.png;
     ".config/kitty/neighboring_window.py".source = kitty/neighboring_window.py;
     ".config/kitty/pass_keys.py".source = kitty/pass_keys.py;
     ".config/kitty/zoom_toggle.py".source = kitty/zoom_toggle.py;
@@ -92,12 +111,13 @@
   #  /etc/profiles/per-user/julio/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
-  # home.shellAliases = {
-  #   lgg = "lazygit";
-  # };
+  home.shellAliases = {
+    lg = "lazygit";
+    v = "nvim";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
