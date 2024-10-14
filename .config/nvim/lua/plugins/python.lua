@@ -59,4 +59,31 @@ return {
       },
     },
   },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     "hrsh7th/cmp-nvim-lsp",
+  --     "hrsh7th/cmp-buffer",
+  --     "hrsh7th/cmp-path",
+  --   },
+  --   opts = function(_, opts)
+  --     local compare = require("cmp.config.compare")
+  --     compare.python_var = function(entry1, entry2)
+  --       if vim.o.filetype ~= "python" then
+  --         return
+  --       end
+  --       -- needed because cmp sometimes gives you the same entry and you must return nil in that case
+  --       if entry1:get_completion_item().label == entry2:get_completion_item().label then
+  --         return
+  --       end
+  --       if entry1:get_completion_item().label:match("%w*=") then
+  --         -- return true to pick entry1 over entry2
+  --         return true
+  --       end
+  --     end
+  --     opts.sorting = {
+  --       comparators = compare,
+  --     }
+  --   end,
+  -- },
 }
