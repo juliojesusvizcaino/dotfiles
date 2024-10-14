@@ -29,6 +29,7 @@ in
     pkgs.fd
     pkgs.ripgrep
     pkgs.lazygit
+    pkgs.delta
     pkgs.kitty
     pkgsGL.auto.nixGLDefault
     pkgs.nil
@@ -227,5 +228,13 @@ in
   programs.zoxide = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  programs.neovim = {
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    withNodeJs = true;
+    withPython3 = true;
   };
 }
