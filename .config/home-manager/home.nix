@@ -39,7 +39,7 @@ in
     pkgs.fzf
     pkgs.zoxide
     pkgs.starship
-    pkgs.python313
+    pkgs.python313Full
     pkgs.uv
 
     # # Adds the 'hello' command to your environment. It prints a friendly

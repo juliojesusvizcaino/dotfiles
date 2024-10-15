@@ -11,4 +11,5 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 # Kitty doesn't work, it needs nixGL: https://github.com/nix-community/nixGL
 nix-channel --add https://github.com/nix-community/nixGL/archive/main.tar.gz nixgl
 nix-channel --update
+nix-shell '<home-manager>' -A install
 ```

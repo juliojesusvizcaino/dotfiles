@@ -1,1 +1,4 @@
 wm.program.terminal: /home/julio/.config/regolith3/default_terminal
+regolith.wallpaper.file: /home/julio/.local/share/backgrounds/2024-02-19-11-21-54-hollow-knight-beauty.jpg
+regolith.lockscreen.wallpaper.file: /home/julio/.local/share/backgrounds/2024-02-19-11-21-54-hollow-knight-beauty.jpg
+regolith.look.path: /usr/share/regolith-look/nord
