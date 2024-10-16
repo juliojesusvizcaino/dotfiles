@@ -1,0 +1,9 @@
+regolith.wallpaper.file: /home/julio/.wallpapers/hollow-knight-art-4k-wallpaper-264a.jpg
+regolith.wallpaper.options: zoom
+
+regolith.lockscreen.wallpaper.file: /home/julio/.wallpapers/hollow-knight-art-4k-wallpaper-264a.jpg
+regolith.lockscreen.wallpaper.options: zoom
+
+regolith.look.path: /usr/share/regolith-look/nord
+
+wm.program.terminal: kitty
