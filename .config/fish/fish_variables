@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export CARAPACE_BRIDGES:zsh\x2cfish\x2cbash\x2cinshellisense
 SETUVAR --export CONDA_PREFIX:/home/julio/mambaforge/
 SETUVAR --path CPLUS_INCLUDE_PATH:/usr/include/gdal
 SETUVAR --path C_INCLUDE_PATH:/usr/include/gdal
