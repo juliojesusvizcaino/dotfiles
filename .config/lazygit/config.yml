@@ -5,6 +5,7 @@ git:
 
 services:
   'hub.nucleoo.com': 'gitlab:hub.nucleoo.com'
+  'bitbucket.mova.indra.es': 'bitbucket:bitbucket.mova.indra.es'
 
 os:
   editPreset: 'nvim-remote'

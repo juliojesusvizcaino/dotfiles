@@ -4,12 +4,21 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    version = false, -- set this if you want to always pull the latest change
+    -- version = "839a8ee25a84f813545440c4c798edd25bfd68a9", -- set this if you want to always pull the latest change
+    -- error with copilot
+    commit = "fb7567ac242fcd0e6013c9a2e735840a3d6fb2fe",
     ---@type avante.Config
     opts = {
       provider = "copilot", -- Only recommend using Claude
       auto_suggestions_provider = "copilot",
       silent_warning = false, -- Add the missing field
+      dual_boost = {
+        enabled = false,
+        first_provider = "azure",
+        second_provider = "claude",
+        prompt = "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
+        timeout = 60000, -- Timeout in milliseconds
+      },
     },
     keys = {
       {
@@ -40,6 +49,7 @@ return {
     build = "make",
     -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
     dependencies = {
+      "nvim-treesitter/nvim-treesitter",
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",

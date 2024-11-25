@@ -15,7 +15,15 @@ vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
 
+-- Move Lines
+vim.keymap.del("n", "<A-j>")
+vim.keymap.del("n", "<A-k>")
+vim.keymap.del("i", "<A-j>")
+vim.keymap.del("i", "<A-k>")
+vim.keymap.del("v", "<A-j>")
+vim.keymap.del("v", "<A-k>")
+
 -- escape on virtual terminals
-vim.keymap.del("t", "<esc><esc>")
+-- vim.keymap.del("t", "<esc><esc>") -- no such a keymap in lazyvim 13
 
 vim.keymap.set("t", "<C-esc>", "<c-\\><c-n>", { desc = "Enter Normal Mode" })
