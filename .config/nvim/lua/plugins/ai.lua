@@ -1,12 +1,12 @@
----@type LazyVimConfig
 return {
+  ---@type LazyVimConfig
   {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    -- version = "839a8ee25a84f813545440c4c798edd25bfd68a9", -- set this if you want to always pull the latest change
+    version = false,
     -- error with copilot
-    commit = "fb7567ac242fcd0e6013c9a2e735840a3d6fb2fe",
+    -- commit = "fb7567ac242fcd0e6013c9a2e735840a3d6fb2fe",
     ---@type avante.Config
     opts = {
       provider = "copilot", -- Only recommend using Claude
@@ -119,22 +119,22 @@ return {
   --   cmd = { "Codeium" },
   --   lazy = false,
   -- },
-  {
-    "zbirenbaum/copilot.lua",
-    optional = true,
-    opts = {
-      panel = { enabled = true },
-    },
-  },
-  {
-    "nvim-cmp",
-    dependencies = { { "zbirenbaum/copilot-cmp" } },
-    opts = function(_, opts)
-      for _, source in ipairs(opts.sources) do
-        if source.name == "copilot" then
-          source.group_index = 2
-        end
-      end
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   optional = true,
+  --   opts = {
+  --     panel = { enabled = true },
+  --   },
+  -- },
+  -- {
+  --   "nvim-cmp",
+  --   dependencies = { { "zbirenbaum/copilot-cmp" } },
+  --   opts = function(_, opts)
+  --     for _, source in ipairs(opts.sources) do
+  --       if source.name == "copilot" then
+  --         source.group_index = 2
+  --       end
+  --     end
+  --   end,
+  -- },
 }

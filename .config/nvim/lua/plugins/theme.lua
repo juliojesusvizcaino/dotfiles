@@ -29,12 +29,12 @@ return {
       },
     },
   },
-  {
-    "nvim-notify",
-    opts = {
-      background_colour = "#000000",
-    },
-  },
+  -- {
+  --   "nvim-notify",
+  --   opts = {
+  --     background_colour = "#000000",
+  --   },
+  -- },
   {
     "catppuccin",
     opts = {

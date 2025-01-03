@@ -17,4 +17,15 @@ stow -d ~/.local/kitty.app/ .
 
 ```sh
 sudo apt install pkg-config libssl-dev build-essential
+rustup update
+cargo install nu --locked
+```
+
+## Ansible
+
+```sh
+uv pip install --system ansible
+ansible-galaxy role install yethal.nushell
+ansible-galaxy role install chriscroome.kitty
+ansible-playbook --ask-become-pass bootstrap.yml
 ```
