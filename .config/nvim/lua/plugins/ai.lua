@@ -4,7 +4,7 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
-    version = false,
+    version = false, -- set this if you want to always pull the latest change
     -- error with copilot
     -- commit = "fb7567ac242fcd0e6013c9a2e735840a3d6fb2fe",
     ---@type avante.Config

@@ -213,7 +213,7 @@ $env.config = {
         case_sensitive: false # set to true to enable case-sensitive completions
         quick: true    # set this to false to prevent auto-selecting completions when only one remains
         partial: true    # set this to false to prevent partial filling of the prompt
-        algorithm: "prefix"    # prefix or fuzzy
+        algorithm: "fuzzy"    # prefix or fuzzy
         sort: "smart" # "smart" (alphabetical for prefix matching, fuzzy score for fuzzy matching) or "alphabetical"
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
@@ -895,6 +895,16 @@ $env.config = {
             event: { edit: selectall }
         }
         {
+          name: change_dir_with_zoxide
+          modifier: CONTROL
+          keycode: Char_y
+          mode: [emacs, vi_insert, vi_normal]
+          event: {
+            send: executehostcommand,
+            cmd: "zi"
+          }
+        }
+        {
           name: fuzzy_history
           modifier: control
           keycode: char_r
@@ -929,13 +939,13 @@ $env.config = {
 }
 
 alias v = nvim
+alias lg = lazygit
 
 # source ~/.cache/atuin/init.nu
 
 source ~/.cache/zoxide/init.nu
 
 # Starship
-
 $env.STARSHIP_SHELL = "nu"
 
 def create_left_prompt [] {

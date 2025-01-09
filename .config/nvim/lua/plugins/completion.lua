@@ -1,5 +1,15 @@
 ---@type LazyConfig
 return {
+  {
+    "saghen/blink.cmp",
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = {
+        preset = "default",
+      },
+    },
+  },
   -- {
   --   "hrsh7th/nvim-cmp",
   --   ---@param opts cmp.ConfigSchema
