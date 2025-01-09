@@ -20,29 +20,29 @@ return {
       },
     },
   },
-  {
-    "nvim-telescope/telescope-file-browser.nvim",
-    config = function()
-      require("telescope").load_extension("file_browser")
-    end,
-    keys = {
-      { "<leader>.", "<cmd>Telescope file_browser path=%:p:h<CR>", desc = "Browse files" },
-    },
-    dependencies = {
-      {
-        "nvim-telescope/telescope.nvim",
-        opts = {
-          extensions = {
-            file_browser = {
-              -- disables netrw and use telescope-file-browser in its place
-              hijack_netrw = true,
-              hidden = true,
-            },
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "nvim-telescope/telescope-file-browser.nvim",
+  --   config = function()
+  --     require("telescope").load_extension("file_browser")
+  --   end,
+  --   keys = {
+  --     { "<leader>.", "<cmd>Telescope file_browser path=%:p:h<CR>", desc = "Browse files" },
+  --   },
+  --   dependencies = {
+  --     {
+  --       "nvim-telescope/telescope.nvim",
+  --       opts = {
+  --         extensions = {
+  --           file_browser = {
+  --             -- disables netrw and use telescope-file-browser in its place
+  --             hijack_netrw = true,
+  --             hidden = true,
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
   -- {
   --   "nvim-telescope/telescope-file-browser.nvim",
   --   config = function()

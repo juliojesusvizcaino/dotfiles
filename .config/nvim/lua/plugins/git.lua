@@ -1,13 +1,13 @@
 ---@type LazyConfig
 return {
-  {
-    "petertriho/cmp-git",
-    opts = {
-      gitlab = {
-        hosts = { "hub.nucleoo.com" },
-      },
-    },
-  },
+  -- {
+  --   "petertriho/cmp-git",
+  --   opts = {
+  --     gitlab = {
+  --       hosts = { "hub.nucleoo.com" },
+  --     },
+  --   },
+  -- },
   {
     "emmanueltouzery/agitator.nvim",
     keys = {

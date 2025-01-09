@@ -213,7 +213,7 @@ $env.config = {
         case_sensitive: false # set to true to enable case-sensitive completions
         quick: true    # set this to false to prevent auto-selecting completions when only one remains
         partial: true    # set this to false to prevent partial filling of the prompt
-        algorithm: "prefix"    # prefix or fuzzy
+        algorithm: "fuzzy"    # prefix or fuzzy
         sort: "smart" # "smart" (alphabetical for prefix matching, fuzzy score for fuzzy matching) or "alphabetical"
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
@@ -423,13 +423,13 @@ $env.config = {
                 ]
             }
         }
-        {
-            name: history_menu
-            modifier: control
-            keycode: char_r
-            mode: [emacs, vi_insert, vi_normal]
-            event: { send: menu name: history_menu }
-        }
+        # {
+        #     name: history_menu
+        #     modifier: control
+        #     keycode: char_r
+        #     mode: [emacs, vi_insert, vi_normal]
+        #     event: { send: menu name: history_menu }
+        # }
         {
             name: help_menu
             modifier: none
@@ -894,17 +894,58 @@ $env.config = {
             mode: emacs
             event: { edit: selectall }
         }
+        {
+          name: change_dir_with_zoxide
+          modifier: CONTROL
+          keycode: Char_y
+          mode: [emacs, vi_insert, vi_normal]
+          event: {
+            send: executehostcommand,
+            cmd: "zi"
+          }
+        }
+        {
+          name: fuzzy_history
+          modifier: control
+          keycode: char_r
+          mode: [emacs, vi_normal, vi_insert]
+          event: [
+            {
+              send: ExecuteHostCommand
+              cmd: "do {
+                $env.SHELL = '/usr/bin/bash'
+                commandline edit --insert (
+                  history
+                  | get command
+                  | reverse
+                  | uniq
+                  | str join (char -i 0)
+                  | fzf --scheme=history 
+                      --read0
+                      --layout=reverse
+                      --height=40%
+                      --bind 'ctrl-/:change-preview-window(right,70%|right)'
+                      --preview='echo -n {} | nu --stdin -c \'nu-highlight\''
+                      # Run without existing commandline query for now to test composability
+                      # -q (commandline)
+                  | decode utf-8
+                  | str trim
+                )
+              }"
+            }
+          ]
+        }
     ]
 }
 
 alias v = nvim
+alias lg = lazygit
 
-source ~/.cache/atuin/init.nu
+# source ~/.cache/atuin/init.nu
 
 source ~/.cache/zoxide/init.nu
 
 # Starship
-
 $env.STARSHIP_SHELL = "nu"
 
 def create_left_prompt [] {

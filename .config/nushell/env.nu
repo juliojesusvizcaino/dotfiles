@@ -106,6 +106,7 @@ zoxide init nushell | save -f ~/.cache/zoxide/init.nu
 
 # Carapace (completions)
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+$env.CARAPACE_MATCH = 1  # case insensitive
 mkdir ~/.cache/carapace
 carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 
@@ -113,9 +114,12 @@ carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
 $env.ATUIN_NOBIND = true
 $env.PATH = ($env.PATH | split row (char esep) | prepend '~/.atuin/bin/')
 mkdir ~/.cache/atuin
-atuin init nu | save -f ~/.cache/atuin/init.nu
+atuin init nu --disable-up-arrow | save -f ~/.cache/atuin/init.nu
 
 # Mise
 let mise_path = $nu.default-config-dir | path join mise.nu
 mkdir ~/.cache/mise
 mise activate nu | save -f ~/.cache/mise/init.nu
+
+# Bob
+$env.PATH = ($env.PATH | split row (char esep) | prepend '~/.local/share/bob/nvim-bin/')
