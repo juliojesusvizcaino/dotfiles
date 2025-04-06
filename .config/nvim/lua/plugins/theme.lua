@@ -19,16 +19,16 @@
 -- end
 ---@type LazyConfig
 return {
-  {
-    "folke/tokyonight.nvim",
-    opts = {
-      transparent = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   opts = {
+  --     transparent = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
   -- {
   --   "nvim-notify",
   --   opts = {
@@ -39,7 +39,7 @@ return {
     "catppuccin",
     opts = {
       flavour = "frappe", -- latte, frappe, macchiato, mocha
-      transparent_background = true,
+      -- transparent_background = true,
     },
   },
   {

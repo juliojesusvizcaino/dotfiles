@@ -24,9 +24,9 @@ return {
       -- Be aware that you also will need to properly configure your LSP server to
       -- provide the code lenses.
       -- This gives a lot of errors for some files.
-      -- codelens = {
-      --   enabled = true,
-      -- },
+      codelens = {
+        enabled = true,
+      },
       servers = {
         lua_ls = {
           settings = {

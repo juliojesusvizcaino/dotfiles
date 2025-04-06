@@ -51,9 +51,9 @@ return {
       })
     end,
     keys = {
-      { "<leader>go", desc = "+open" },
+      { "<leader>gO", desc = "+open" },
       {
-        "<leader>goo",
+        "<leader>gOo",
         function()
           require("gitlinker").get_buf_range_url(
             "v",
@@ -65,7 +65,7 @@ return {
         mode = { "n", "v" },
       },
       {
-        "<leader>goh",
+        "<leader>gOh",
         function()
           require("gitlinker").get_repo_url({
             action_callback = require("gitlinker.actions").open_in_browser,
@@ -74,14 +74,14 @@ return {
         desc = "Browse homepage",
       },
       {
-        "<leader>goy",
+        "<leader>gOy",
         function()
           require("gitlinker").get_buf_range_url()
         end,
         desc = "Copy link to remote",
       },
       {
-        "<leader>goY",
+        "<leader>gOY",
         function()
           require("gitlinker").get_repo_url()
         end,
