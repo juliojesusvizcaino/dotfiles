@@ -1,54 +1,72 @@
-## Modified to source the generated file directly (so it isn't created every time)
-if command -v starship 1>/dev/null 2>&1
-    # # starship init fish | source
-    # source /home/julio/.config/fish/starship.fish
-    starship init fish | source
+# Starship Prompt
+if command -v starship >/dev/null 2>&1
+    source ~/.config/fish/init_starship.fish # Generated via: starship init fish > ~/.config/fish/init_starship.fish
 end
-# status --is-login; and status --is-interactive; and exec byobu-launcher
 
+# VI Key Bindings
 fish_vi_key_bindings
 
+# GHCup
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
-set -gx PATH $HOME/.cabal/bin /home/julio/.ghcup/bin $PATH # ghcup-env
+# PATH additions will be consolidated below
 
-zoxide init fish | source
+# Zoxide
+if command -v zoxide >/dev/null 2>&1
+    source ~/.config/fish/init_zoxide.fish # Generated via: zoxide init fish > ~/.config/fish/init_zoxide.fish
+end
 
+# Custom Keybind for Zoxide integration (zi)
 bind -M insert \cy zi
 bind -M default \cy zi
 
-fish_add_path ~/.local/share/mise/shims
-~/.local/bin/mise activate fish | source
+# Mise (Rtx) - Activate manually or accept the startup cost
+# If you need it always active and accept the potential slowness:
+if command -v mise >/dev/null 2>&1
+    ~/.local/bin/mise activate fish | source
+end
+# Otherwise, comment out the above block and activate manually when needed.
+# PATH addition for mise shims will be consolidated below
 
+# FZF
 set -x FZF_CTRL_R_OPTS "--layout=reverse"
+if command -v fzf >/dev/null 2>&1
+    source ~/.config/fish/init_fzf.fish # Generated via: fzf --fish > ~/.config/fish/init_fzf.fish
+end
 
-fzf --fish | source
-
+# Conda (Keep commented out for speed)
 # >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# if test -f /home/julio/miniconda3/bin/conda
-#     eval /home/julio/miniconda3/bin/conda "shell.fish" hook $argv | source
-# else
-#     if test -f "/home/julio/miniconda3/etc/fish/conf.d/conda.fish"
-#         . "/home/julio/miniconda3/etc/fish/conf.d/conda.fish"
-#     else
-#         set -x PATH /home/julio/miniconda3/bin $PATH
-#     end
-# end
+# ... (conda block remains commented)
 # <<< conda initialize <<<
 
-
-if test -f /usr/bin/carapace
-    set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
-    mkdir -p ~/.config/fish/completions
-    carapace --list | awk '{print $1}' | xargs -I{} touch ~/.config/fish/completions/{}.fish # disable auto-loaded completions (#185)
-    carapace _carapace | source
+# Carapace
+if command -v carapace >/dev/null 2>&1
+    set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # Optional, set once
+    source ~/.config/fish/init_carapace.fish # Generated via: carapace _carapace > ~/.config/fish/init_carapace.fish
+    # Ensure uv/uvx completions generated into ~/.config/fish/completions/
+    # uv generate-shell-completion fish > ~/.config/fish/completions/uv.fish
+    # uvx --generate-shell-completion fish > ~/.config/fish/completions/uvx.fish
 end
-uv generate-shell-completion fish | source
-uvx --generate-shell-completion fish | source
 
-# pnpm
+# PNPM
 set -gx PNPM_HOME "/home/julio/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
+# PATH additions will be consolidated below
+
+# Consolidated PATH settings (adjust order as needed)
+# Ensures paths are added only once and in the desired order.
+set -l ghcup_bin "$HOME/.ghcup/bin"
+set -l cabal_bin "$HOME/.cabal/bin"
+set -l mise_shims "$HOME/.local/share/mise/shims"
+set -l pnpm_home "$PNPM_HOME" # Already set above
+
+fish_add_path --path $cabal_bin
+fish_add_path --path $ghcup_bin
+fish_add_path --path $mise_shims # Add mise shims if using mise
+fish_add_path --path $pnpm_home
+
+# Cleanup temporary variables
+set -e ghcup_bin cabal_bin mise_shims pnpm_home
+
+# Optional: Add Byobu launcher logic if needed
+# if status --is-login; and status --is-interactive; and not type -q byobu; and not set -q TMUX
+#     exec byobu-launcher
+# end
