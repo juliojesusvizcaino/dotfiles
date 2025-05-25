@@ -10,6 +10,8 @@ fish_vi_key_bindings
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 # PATH additions will be consolidated below
 
+set MANPAGER 'nvim +Man!'
+
 # Zoxide
 if command -v zoxide >/dev/null 2>&1
     source ~/.config/fish/init_zoxide.fish # Generated via: zoxide init fish > ~/.config/fish/init_zoxide.fish
@@ -21,9 +23,9 @@ bind -M default \cy zi
 
 # Mise (Rtx) - Activate manually or accept the startup cost
 # If you need it always active and accept the potential slowness:
-if command -v mise >/dev/null 2>&1
-    ~/.local/bin/mise activate fish | source
-end
+# if command -v mise >/dev/null 2>&1
+~/.local/bin/mise activate fish | source
+# end
 # Otherwise, comment out the above block and activate manually when needed.
 # PATH addition for mise shims will be consolidated below
 
@@ -55,12 +57,12 @@ set -gx PNPM_HOME "/home/julio/.local/share/pnpm"
 # Ensures paths are added only once and in the desired order.
 set -l ghcup_bin "$HOME/.ghcup/bin"
 set -l cabal_bin "$HOME/.cabal/bin"
-set -l mise_shims "$HOME/.local/share/mise/shims"
+# set -l mise_shims "$HOME/.local/share/mise/shims"
 set -l pnpm_home "$PNPM_HOME" # Already set above
 
 fish_add_path --path $cabal_bin
 fish_add_path --path $ghcup_bin
-fish_add_path --path $mise_shims # Add mise shims if using mise
+# fish_add_path --path $mise_shims # Add mise shims if using mise
 fish_add_path --path $pnpm_home
 
 # Cleanup temporary variables

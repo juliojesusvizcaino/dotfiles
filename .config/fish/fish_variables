@@ -1,7 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export CARAPACE_BRIDGES:zsh\x2cfish\x2cbash\x2cinshellisense
-SETUVAR --export CONDA_PREFIX:/home/julio/mambaforge/
 SETUVAR --path CPLUS_INCLUDE_PATH:/usr/include/gdal
 SETUVAR --path C_INCLUDE_PATH:/usr/include/gdal
 SETUVAR --export --path DAMSAT_SHARE_PATH:/home/julio/Documents/vandersat/data/damsat_share
@@ -13,7 +12,7 @@ SETUVAR --export VISUAL:nvim
 SETUVAR --export XDG_CONFIG_HOME:/home/julio/\x2econfig
 SETUVAR --export ZELLIJ_AUTO_ATTACH:true
 SETUVAR --export ZELLIJ_AUTO_EXIT:true
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR _fish_abbr_za:zoxide\x20add
 SETUVAR _fish_abbr_zq:zoxide\x20query
 SETUVAR _fish_abbr_zqi:zoxide\x20query\x20\x2di
@@ -50,7 +49,7 @@ SETUVAR fish_color_selection:\x2d\x2dbackground\x3d414559
 SETUVAR fish_color_status:e78284
 SETUVAR fish_color_user:81c8be
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
-SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell\x0aType\x20\x60help\x60\x20for\x20instructions\x20on\x20how\x20to\x20use\x20fish
+SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_background:\x1d
 SETUVAR fish_pager_color_completion:c6d0f5
@@ -65,4 +64,4 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR --export fish_user_paths:/home/julio/Downloads/sonar\x2dscanner\x2d5\x2e0\x2e1\x2e3006\x2dlinux/bin\x1e/home/julio/\x2elocal/share/bob/nvim\x2dbin\x1e/home/julio/\x2ecargo/bin\x1e/home/julio/\x2epoetry/bin\x1e/home/julio/\x2edoom\x2eemacs/bin/\x1e/home/julio/\x2eemacs\x2ed/bin/\x1e/home/julio/\x2efzf/bin
+SETUVAR --export fish_user_paths:/home/julio/\x2elocal/share/mise/shims\x1e/home/julio/Downloads/sonar\x2dscanner\x2d5\x2e0\x2e1\x2e3006\x2dlinux/bin\x1e/home/julio/\x2elocal/share/bob/nvim\x2dbin\x1e/home/julio/\x2ecargo/bin\x1e/home/julio/\x2epoetry/bin\x1e/home/julio/\x2edoom\x2eemacs/bin/\x1e/home/julio/\x2eemacs\x2ed/bin/\x1e/home/julio/\x2efzf/bin

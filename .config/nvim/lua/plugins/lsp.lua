@@ -1,5 +1,7 @@
----@type LazyConfig
 return {
+  -- https://github.com/LazyVim/LazyVim/issues/6039
+  { "mason-org/mason.nvim", version = "1.11.0" },
+  { "mason-org/mason-lspconfig.nvim", version = "1.32.0" },
   -- {
   --   "nvimdev/lspsaga.nvim",
   --   config = function()
@@ -24,9 +26,9 @@ return {
       -- Be aware that you also will need to properly configure your LSP server to
       -- provide the code lenses.
       -- This gives a lot of errors for some files.
-      codelens = {
-        enabled = true,
-      },
+      -- codelens = {
+      --   enabled = true,
+      -- },
       servers = {
         lua_ls = {
           settings = {

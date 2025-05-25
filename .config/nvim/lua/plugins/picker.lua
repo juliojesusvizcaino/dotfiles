@@ -1,5 +1,22 @@
----@type LazyConfig
 return {
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          explorer = {
+            hidden = true,
+            -- your explorer picker configuration comes here
+            -- or leave it empty to use the default settings
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader><space>", LazyVim.pick("files", { root = false, hidden = true }), desc = "Find Files (cwb)" },
+      { "<leader>/", LazyVim.pick("live_grep", { root = false, hidden = true }), desc = "Grep (cwd)" },
+    },
+  },
   -- {
   --   "nvim-telescope/telescope.nvim",
   --   optional = true,

@@ -114,6 +114,7 @@ return {
   --   },
   -- },
   {
+    optional = true,
     "olimorris/codecompanion.nvim",
     cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionCmd", "CodeCompanionActions" },
     dependencies = {
@@ -211,32 +212,18 @@ return {
     end,
   },
   {
+    optional = true,
     "ravitemer/mcphub.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim", -- Required for Job and HTTP requests
     },
-    cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
-    build = "mise use npm:mcp-hub@latest --global", -- Installs required mcp-hub npm module
+    -- uncomment the following line to load hub lazily
+    --cmd = "MCPHub",  -- lazy load
+    build = "npm install -g mcp-hub@latest", -- Installs required mcp-hub npm module
+    -- uncomment this if you don't want mcp-hub to be available globally or can't use -g
+    -- build = "bundled_build.lua",  -- Use this and set use_bundled_binary = true in opts  (see Advanced configuration)
     config = function()
-      require("mcphub").setup({
-        -- Required options
-        port = 3333, -- Port for MCP Hub server
-        config = vim.fn.expand("~/.config/mcphub/mcpservers.json"), -- Absolute path to config file
-
-        -- Optional options
-        on_ready = function(hub)
-          -- Called when hub is ready
-        end,
-        on_error = function(err)
-          -- Called on errors
-        end,
-        log = {
-          level = vim.log.levels.WARN,
-          to_file = false,
-          file_path = nil,
-          prefix = "MCPHub",
-        },
-      })
+      require("mcphub").setup()
     end,
   },
 }
