@@ -9,3 +9,4 @@ regolith.look.path: /usr/share/regolith-look/nord
 wm.program.terminal: kitty
 
 wm.bar.status_config: /home/julio/.config/i3status-rust/config.toml
+regolith.sway.unsupported_gpu: true
