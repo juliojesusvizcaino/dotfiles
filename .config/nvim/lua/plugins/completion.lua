@@ -1,4 +1,3 @@
----@type LazyConfig
 return {
   {
     "saghen/blink.cmp",
@@ -32,25 +31,25 @@ return {
   --   end,
   -- },
   -- When I press tab I want to insert spaces
-  {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {
-        {
-          "<c-l>",
-          function()
-            require("luasnip").jump(1)
-          end,
-          mode = { "i", "s" },
-        },
-        {
-          "<c-h>",
-          function()
-            require("luasnip").jump(-1)
-          end,
-          mode = { "i", "s" },
-        },
-      }
-    end,
-  },
+  -- {
+  --   "L3MON4D3/LuaSnip",
+  --   keys = function()
+  --     return {
+  --       {
+  --         "<c-l>",
+  --         function()
+  --           require("luasnip").jump(1)
+  --         end,
+  --         mode = { "i", "s" },
+  --       },
+  --       {
+  --         "<c-h>",
+  --         function()
+  --           require("luasnip").jump(-1)
+  --         end,
+  --         mode = { "i", "s" },
+  --       },
+  --     }
+  --   end,
+  -- },
 }

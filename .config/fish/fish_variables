@@ -5,6 +5,7 @@ SETUVAR --path CPLUS_INCLUDE_PATH:/usr/include/gdal
 SETUVAR --path C_INCLUDE_PATH:/usr/include/gdal
 SETUVAR --export --path DAMSAT_SHARE_PATH:/home/julio/Documents/vandersat/data/damsat_share
 SETUVAR --export EDITOR:nvim
+SETUVAR --export LAUNCH_EDITOR:/home/julio/open\x2din\x2dide\x2esh
 SETUVAR --export MAPBOX_ACCESS_TOKEN:sk\x2eeyJ1Ijoiamp2aXpjYWlubyIsImEiOiJja21jNjEyb2sxd2tyMnptem13dGpsbHh6In0\x2eitg3qsyUXoQitc2DkKlWRw
 SETUVAR --export ONESAT_TILES_DIR:/home/julio/Documents/vandersat/data/onesat_tiles
 SETUVAR --export OPENAI_API_HOST:api\x2eopenai\x2ecom
@@ -64,4 +65,4 @@ SETUVAR fish_pager_color_selected_background:\x1d
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
-SETUVAR --export fish_user_paths:/home/julio/\x2elocal/share/mise/shims\x1e/home/julio/Downloads/sonar\x2dscanner\x2d5\x2e0\x2e1\x2e3006\x2dlinux/bin\x1e/home/julio/\x2elocal/share/bob/nvim\x2dbin\x1e/home/julio/\x2ecargo/bin\x1e/home/julio/\x2epoetry/bin\x1e/home/julio/\x2edoom\x2eemacs/bin/\x1e/home/julio/\x2eemacs\x2ed/bin/\x1e/home/julio/\x2efzf/bin
+SETUVAR --export fish_user_paths:/home/julio/\x2ebun/bin\x1e/home/julio/\x2elocal/bin\x1e/home/julio/\x2eopencode/bin\x1e/home/julio/go/bin\x1e/home/julio/\x2elocal/share/mise/shims\x1e/home/julio/Downloads/sonar\x2dscanner\x2d5\x2e0\x2e1\x2e3006\x2dlinux/bin\x1e/home/julio/\x2elocal/share/bob/nvim\x2dbin\x1e/home/julio/\x2ecargo/bin\x1e/home/julio/\x2epoetry/bin\x1e/home/julio/\x2edoom\x2eemacs/bin/\x1e/home/julio/\x2eemacs\x2ed/bin/\x1e/home/julio/\x2efzf/bin

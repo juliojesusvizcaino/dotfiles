@@ -24,4 +24,31 @@ return {
   --     },
   --   },
   -- },
+  --
+  -- {
+  --   "stevearc/conform.nvim",
+  --   dependencies = { "mason.nvim" },
+  --   lazy = true,
+  --   cmd = "ConformInfo",
+  --   opts = {
+  --     formatters = { "sql-formatter" },
+  --     formatters_by_ft = {
+  --       sql = { "sql-formatter" },
+  --     },
+  --   },
+  -- },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        sql = { "sql_formatter" },
+      },
+      formatters = {
+        sql_formatter = {
+          command = "sql-formatter",
+          args = { "--language", "postgresql" }, -- Add any other arguments you prefer
+        },
+      },
+    },
+  },
 }

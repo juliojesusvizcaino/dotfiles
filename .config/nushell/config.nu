@@ -968,3 +968,4 @@ source ~/.cache/carapace/init.nu
 
 # Mise
 use ~/.cache/mise/init.nu
+source $"($nu.home-path)/.cargo/env.nu"

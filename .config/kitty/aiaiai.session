@@ -1,0 +1,17 @@
+# Sets the layout to a 2x2 grid
+layout grid
+
+# Set the initial working directory for all windows
+cd /home/julio/Documents/aiaiai/open-webui/in-progress-webui
+
+# Window 1: webserver
+# The outer fish shell changes to the webserver directory and traps SIGINT.
+# The inner fish shell resets the SIGINT trap so the command can be interrupted.
+# Finally, an interactive fish shell is launched in the webserver directory.
+launch --title "Webserver" fish -c "trap '' SIGINT; cd webserver; and fish -c 'trap SIGINT; make -f scripts/makefile run-local'; fish"
+
+# Window 2: uvicorn (split vertically from the first)
+launch --location=vsplit --title "Backend" fish -c "trap '' SIGINT; cd backend; and fish -c 'trap SIGINT; watchfiles --filter python \"python main.py\"'; fish"
+
+# Window 3: npm (split horizontally from the first)
+launch --location=hsplit --title "Frontend" fish -c "trap '' SIGINT; fish -c 'trap SIGINT; npm run dev'; fish"

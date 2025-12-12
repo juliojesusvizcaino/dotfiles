@@ -7,11 +7,15 @@ return {
       -- LSP keymaps
       {
         "neovim/nvim-lspconfig",
-        opts = function()
-          local keys = require("lazyvim.plugins.lsp.keymaps").get()
-          -- disable a keymap
-          keys[#keys + 1] = { "<M-n>", false }
-        end,
+        opts = {
+          servers = {
+            ["*"] = {
+              keys = {
+                { "<M-n>", false },
+              },
+            },
+          },
+        },
       },
     },
     keys = {

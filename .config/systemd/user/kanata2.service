@@ -1,0 +1,15 @@
+[Unit]
+Description=Kanata keyboard remapper
+Documentation=https://github.com/jtroo/kanata
+
+[Service]
+; Environment=PATH=/home/julio/.local/bin
+; Environment=DISPLAY=:0
+; Environment=HOME=/path/to/home/folder
+ExecStartPre=/usr/sbin/modprobe uinput
+Type=simple
+ExecStart=/home/julio/.local/bin/kanata --cfg /home/julio/.config/kanata/kanata2.kbd
+Restart=no
+
+[Install]
+WantedBy=default.target

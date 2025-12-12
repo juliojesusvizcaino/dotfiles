@@ -72,3 +72,14 @@ set -e ghcup_bin cabal_bin mise_shims pnpm_home
 # if status --is-login; and status --is-interactive; and not type -q byobu; and not set -q TMUX
 #     exec byobu-launcher
 # end
+
+if command -v ast-grep >/dev/null 2>&1
+  ast-grep completions fish | source
+end
+
+# opencode
+fish_add_path /home/julio/.opencode/bin
+fish_add_path $HOME/.local/bin
+
+set -x BUN_INSTALL "$HOME/.bun"
+fish_add_path $BUN_INSTALL/bin

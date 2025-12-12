@@ -36,6 +36,8 @@ return {
   --   },
   -- },
   {
+    -- https://github.com/LazyVim/LazyVim/issues/6355
+    tag = "v1.10.0",
     "catppuccin",
     opts = {
       flavour = "frappe", -- latte, frappe, macchiato, mocha

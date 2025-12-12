@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "github.com/modelcontextprotocol/servers/tree/main/src/git": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-git"
+      ]
+    },
+    "github.com/modelcontextprotocol/servers/tree/main/src/gitlab": {
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-gitlab"
+      ],
+      "command": "npx",
+      "disabled": true,
+      "env": {
+        "GITLAB_PERSONAL_ACCESS_TOKEN": "glpat-ygyzCAymtaJzS_ikaYzU",
+        "GITLAB_API_URL": "https://hub.nucleoo.com/api/v4"
+      }
+    },
+    "github.com/modelcontextprotocol/servers/tree/main/src/postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://example_user:example_password@localhost:5438/example_db"
+      ]
+    },
+    "github.com/modelcontextprotocol/servers/tree/main/src/puppeteer": {
+      "command": "npx",
+      "disabled": true,
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-puppeteer",
+        "--no-sandbox"
+      ]
+    }
+  }
+}

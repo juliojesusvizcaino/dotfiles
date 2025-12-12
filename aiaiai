@@ -1,0 +1,11 @@
+#!/bin/bash
+# Load the aiaiai session in the current Kitty window
+
+# Check if we're running inside Kitty
+if [ -n "$KITTY_WINDOW_ID" ]; then
+    # We're inside Kitty, use remote control to load the session
+    kitty @ load-layout ~/.dotfiles/.config/kitty/aiaiai.session
+else
+    # We're not inside Kitty, start a new Kitty window with the session
+    kitty --session ~/.dotfiles/.config/kitty/aiaiai.session
+fi

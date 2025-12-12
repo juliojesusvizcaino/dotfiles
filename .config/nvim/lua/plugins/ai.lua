@@ -1,10 +1,37 @@
 return {
   -- temporal fix: https://github.com/LazyVim/LazyVim/issues/5905
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   optional = true,
+  --   opts = function()
+  --     require("copilot.api").status = require("copilot.status")
+  --   end,
+  -- },
+  -- move copilot out of the autocompletion to c-l
   {
-    "zbirenbaum/copilot.lua",
+    "saghen/blink.cmp",
     optional = true,
-    opts = function()
-      require("copilot.api").status = require("copilot.status")
+    opts = function(_, opts)
+      -- remove copilot from the opts.sources.default
+      if opts.sources.default then
+        for i, source in ipairs(opts.sources.default) do
+          if source == "copilot" then
+            table.remove(opts.sources.default, i)
+            break
+          end
+        end
+      end
+      local keymap = {
+        -- show with a list of providers
+        ["<C-l>"] = {
+          function(cmp)
+            cmp.show({ providers = { "copilot" } })
+          end,
+        },
+      }
+      -- merge opts.keymap with keymap
+      opts.keymap = vim.tbl_extend("error", opts.keymap, keymap)
+      return opts
     end,
   },
   -- {

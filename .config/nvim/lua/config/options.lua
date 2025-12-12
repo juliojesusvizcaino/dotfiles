@@ -15,6 +15,9 @@ vim.opt.foldenable = false
 vim.g.autoformat = false
 
 vim.filetype.add({
+  extension = {
+    mdc = "markdown",
+  },
   filename = {
     [".env"] = "config",
     [".todo"] = "txt",

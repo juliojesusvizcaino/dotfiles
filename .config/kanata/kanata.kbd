@@ -1,10 +1,17 @@
 (defcfg
   process-unmapped-keys yes
-  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
+  linux-dev (
+    /dev/input/by-path/platform-i8042-serio-0-event-kbd
+    ;; /dev/input/by-path/pci-0000:00:14.0-usb-0:3.4:1.1-event-kbd
+    ;; /dev/input/by-path/pci-0000:00:14.0-usb-0:3.3:1.1-event-kbd
+    ;; /dev/input/by-path/pci-0000:00:14.0-usb-0:3.3:1.0-event-kbd
+  )
 )
 (defsrc
-  a s d f j k l ;
-  caps
+  q w e r t y u i o p
+  a s d f g h j k l ;
+  z x c v b n m
+  caps lalt ralt
   ;; spc
 )
 (defvar
@@ -13,19 +20,21 @@
 )
 (defalias
   a (multi f24 (tap-hold $tap-time $hold-time a lmet))
-  s (multi f24 (tap-hold $tap-time $hold-time s lalt))
-  d (multi f24 (tap-hold $tap-time $hold-time d lctl))
-  f (multi f24 (tap-hold $tap-time $hold-time f lsft))
-  j (multi f24 (tap-hold $tap-time $hold-time j rsft))
-  k (multi f24 (tap-hold $tap-time $hold-time k lctl))
-  l (multi f24 (tap-hold $tap-time $hold-time l lalt))
-  ; (multi f24 (tap-hold $tap-time $hold-time ; rmet))
+  r (multi f24 (tap-hold $tap-time $hold-time r lalt))
+  s (multi f24 (tap-hold $tap-time $hold-time s lctl))
+  t (multi f24 (tap-hold $tap-time $hold-time t lsft))
+  n (multi f24 (tap-hold $tap-time $hold-time n rsft))
+  e (multi f24 (tap-hold $tap-time $hold-time e lctl))
+  i (multi f24 (tap-hold $tap-time $hold-time i lalt))
+  o (multi f24 (tap-hold $tap-time $hold-time o rmet))
   ;; spc (multi f24 (tap-hold-release $tap-time $hold-time spc lsft))
   caps esc
 )
 
 (deflayer base
-  @a  @s  @d  @f  @j  @k  @l  @;
-  @caps
+  q w f p g  j l u y ;
+  @a @r @s @t  d  h @n @e @i @o
+  z x c v b  k m
+  @caps _ ralt
   ;; @spc
 )
